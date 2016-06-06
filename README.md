@@ -1,6 +1,6 @@
-### Just Todo It
+### See-A-Mess
 
-A todo list app written using Polymer, Phonegap, and a local pouchDB which syncs to a couchDB on cloudant.com
+A google spreadsheet based CMS. Designed to operated as an online service only requiring a spreadsheet to specified format published from google drive.
 
 #### Requirements
 
@@ -8,28 +8,15 @@ A todo list app written using Polymer, Phonegap, and a local pouchDB which syncs
     
 #### Install
 
-    $ npm install -g phonegap
     $ npm install -g bower
-    $ bower install
+    $ npm install
+	$ bower install
 
 #### Debugging the app
 
-    $ cd app
-    $ phonegap serve
+    $ npm run dev
     
 #### Building the app
 
-    $ cd app
-    $ phonegap build android    #apk file goes to app/platforms/android
-    $ phonegap build ios        #on an ios environment only
+    $ npm start
     
-	  
-#### Remaining Work
-
-- clear completed: Add index on deleted (or completed), and attempt to query by it
-- message to user on create/update of a task
-- strikethrough on task on completed
-- order by created date
-- add priority - and order by this as primary, and created as secondary then
-- logo not loading in app
-- All of description not showing on view task
