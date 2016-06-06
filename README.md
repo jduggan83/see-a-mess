@@ -1,6 +1,8 @@
 ### See-A-Mess
 
-A google spreadsheet based CMS. Designed to operated as an online service only requiring a spreadsheet to specified format published from google drive.
+A google spreadsheet based CMS. The CMS is designed to operate as an online service only requiring a reference to a spreadsheet published from google drive. To use this CMS, no hosting of any of the base html content is required, just a google drive account that will host a spreadsheet which contains the site definition. 
+
+Any additional content can also be stored on google drive and then referenced in the spreadsheet like images, word docs, css files, etc.
 
 #### Requirements
 
