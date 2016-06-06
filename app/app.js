@@ -6,6 +6,7 @@
 // Declare app level module which depends on views, and components
 angular.module('cms', [
     'ngRoute',
+    'ngSanitize',
     'controllers',
     'services'
 ]).

@@ -2,8 +2,8 @@
 <div ng-controller="PageController">
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3">{{featuredArticle.title}}</h1>
-            <p>{{featuredArticle.content}}</p>
+            <h1 class="display-3" ng-bind-html="featuredArticle.title"></h1>
+            <p ng-bind-html="featuredArticle.content"></p>
             <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
         </div>
     </div>
@@ -11,8 +11,8 @@
         <!-- Example row of columns -->
         <div class="row">
             <div class="col-md-4" ng-repeat="article in articles">
-                <h2>{{article.title}}</h2>
-                <p>{{article.content}}</p>
+                <h2 ng-bind-html="article.title"></h2>
+                <p ng-bind-html="article.content"></p>
                 <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
             </div>
         </div>
