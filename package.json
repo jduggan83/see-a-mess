@@ -1,0 +1,34 @@
+{
+  "name": "see-a-mess",
+  "version": "1.0.0",
+  "description": "A google spreadsheet based CMS. Designed to operated as an online service only requiring a spreadsheet to specified format published fro google drive.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/.bin/nodemon index",
+    "start": "npm install && node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jduggan83/see-a-mess.git"
+  },
+  "keywords": [
+    "Google",
+    "Spreadsheets",
+    "Angular",
+    "Express",
+    "CMS"
+  ],
+  "author": "Jonathan Duggan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jduggan83/see-a-mess/issues"
+  },
+  "homepage": "https://github.com/jduggan83/see-a-mess#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  }
+}

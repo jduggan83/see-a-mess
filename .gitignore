@@ -1,0 +1,9 @@
+node_modules
+dist
+bower_components
+.tmp
+.publish/
+platforms
+.idea
+/app/plugins
+/*.log
