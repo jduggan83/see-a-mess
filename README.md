@@ -19,4 +19,8 @@ A google spreadsheet based CMS. Designed to operated as an online service only r
 #### Building the app
 
     $ npm start
-    
+
+#### Ideas
+ - Id for a custom css file that published
+ - id for images etc, or is there a better way to link them?
+ - look into how web components can be referenced 
