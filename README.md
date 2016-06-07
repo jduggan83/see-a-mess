@@ -24,10 +24,12 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
 #### Ideas and todo
  - look at app page for specifying name, layout
- - Look downloading a few different themes that can be selected
  - use LESS at runtime to specify colors etc
- - if spreadsheet becomes too big, have dev mode reading from sheet and then publish to a mongo db for prod mode
- - Id for a custom css file that published
+ - establih a few different page layout patterns to be chosen
+ - go through all components on bootstrap site and attempt to have these types available from sheet
  - id for images etc, or is there a better way to link them?
+ - Look downloading a few different themes that can be selected
+ - Id for a custom css file that can be published
  - look into how web components can be referenced - use one as an example
+ - if spreadsheet becomes too big, have dev mode reading from sheet and then publish to a mongo db for prod mode
  - a spinner cover entire screen while excel is loading
