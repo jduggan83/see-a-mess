@@ -8,7 +8,7 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
 - [Install node.js](http://nodejs.org/) version `>=0.10.x`
     
-#### Install
+#### Install & Buil
 
     $ npm install -g bower
     $ npm install
@@ -18,7 +18,7 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
     $ npm run dev
     
-#### Building the app
+#### Running the app
 
     $ npm start
 
