@@ -29,4 +29,5 @@ To use this CMS, no hosting of any of the base html content is required, just a 
  - if spreadsheet becomes too big, have dev mode reading from sheet and then publish to a mongo db for prod mode
  - Id for a custom css file that published
  - id for images etc, or is there a better way to link them?
- - look into how web components can be referenced
+ - look into how web components can be referenced - use one as an example
+ - a spinner cover entire screen while excel is loading
