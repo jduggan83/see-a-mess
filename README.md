@@ -22,7 +22,11 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
     $ npm start
 
-#### Ideas
+#### Ideas and todo
+ - look at app page for specifying name, layout
+ - Look downloading a few different themes that can be selected
+ - use LESS at runtime to specify colors etc
+ - if spreadsheet becomes too big, have dev mode reading from sheet and then publish to a mongo db for prod mode
  - Id for a custom css file that published
  - id for images etc, or is there a better way to link them?
- - look into how web components can be referenced 
+ - look into how web components can be referenced
