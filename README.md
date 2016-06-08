@@ -1,4 +1,4 @@
-### See-A-Mess
+### See-a-Mess
 
 A google spreadsheet based CMS. The CMS is designed to operate as an online service only requiring a reference to a spreadsheet published from google drive. 
 
