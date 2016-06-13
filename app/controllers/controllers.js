@@ -3,29 +3,19 @@
  */
 var controllers = angular.module('controllers',[]);
 
-controllers.controller('MenuController', ['$scope', '$routeParams', 'googleSheetService', function($scope, $routeParams, googleSheetService) {
+controllers.controller('MenuController', ['$scope', '$routeParams', '$location', 'googleSheetService', function($scope, $routeParams, $location, googleSheetService) {
     $scope.menuItems = [];
 
-    googleSheetService.then(function(doc){
-        $scope.menuItems = doc.Sheet1.elements;
+    googleSheetService.initialise(location.search.split('id=')[1]).then(function(){
+        $scope.menuItems = googleSheetService.getPages();
+        $location.path('/'+$scope.menuItems[0].id)
     });
 
     $scope.isActive = function(pageId){
         return $routeParams.pageId == pageId;
-    }
+    };
 }]);
 
 controllers.controller('PageController', ['$scope', 'googleSheetService','$routeParams', function($scope, googleSheetService, $routeParams) {
-    $scope.articles = [];
-    $scope.featuredArticle = {};
-
-    googleSheetService.then(function(doc){
-        angular.forEach(doc[$routeParams.pageId].elements, function(element){
-            if(element.top == "yes"){
-                $scope.featuredArticle = element;
-            }else{
-                $scope.articles.push(element);
-            }
-        });
-    });
+    $scope.articles = googleSheetService.getPageItems($routeParams.pageId);
 }]);

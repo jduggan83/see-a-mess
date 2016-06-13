@@ -12,10 +12,7 @@ angular.module('cms', [
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $routeProvider
-        .when('/', {
-            templateUrl : 'pages/home.html'
-        })
         .when('/:pageId', {
-            templateUrl : 'pages/detail.html'
+            templateUrl : 'views/detail.html'
         })
 }]);

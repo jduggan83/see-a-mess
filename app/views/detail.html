@@ -1,0 +1,17 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div ng-controller="PageController">
+    <div class="jumbotron" ng-repeat="article in articles | filter:{size:'jumbotron'}">
+        <div class="container">
+            <h1 class="display-3" ng-bind-html="article.title"></h1>
+            <p ng-bind-html="article.content"></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div ng-class="{ 'col-md-4': article.size==1, 'col-md-8': article.size==2, 'col-md-12': article.size==3}" ng-repeat="article in articles | filter:{size:'!jumbotron'}">
+                <h2 ng-bind-html="article.title"></h2>
+                <p ng-bind-html="article.content"></p>
+            </div>
+        </div>
+    </div>
+</div>
