@@ -2,37 +2,189 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Polymer Starter Kit">
     <title>See A Mess</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bower_components/tether/dist/css/tether.min.css" rel="stylesheet">
+    <!-- Place favicon.ico in the `app/` directory -->
+
+    <!-- Chrome for Android theme color -->
+    <meta name="theme-color" content="#2E3AA1">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Tile color for Win8 -->
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="PSK">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild-->
+
+    <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <!-- endbuild -->
+
+    <!-- Because this project uses vulcanize this should be your only html import
+         in this file. All other imports should go in elements.html -->
+    <link rel="import" href="elements/elements.html">
+
+    <!-- For shared styles, shared-styles.html import in elements.html -->
+    <style is="custom-style" include="shared-styles"></style>
 </head>
-<body ng-app="cms">
+<body >
     <nav class="navbar navbar-static-top navbar-dark bg-inverse" ng-controller="MenuController">
         <a class="navbar-brand" href="#">See A Mess</a>
-        <ul class="nav navbar-nav">
-            <li class="nav-item" ng-repeat="item in menuItems" ng-class="{ 'active': isActive(item.href) }">
-                <a class="nav-link" href="#{{item.id}}">{{item.title}} <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
+
     </nav>
     <div ng-view></div>
 </body>
-<!-- tableTop library for googleSheets info -->
-<script src="lib/gDoc.js/tabletop.js"></script>
+<body unresolved ng-app="cms">
+<!-- build:remove -->
+<span id="browser-sync-binding"></span>
+<!-- endbuild -->
 
-<!--jquery and bootstrap-->
-<script src="bower_components/tether/dist/js/tether.min.js"></script>
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<paper-drawer-panel id="paperDrawerPanel">
+    <!-- Drawer Scroll Header Panel -->
+    <paper-scroll-header-panel drawer fixed>
+
+        <!-- Drawer Toolbar -->
+        <paper-toolbar id="drawerToolbar">
+            <span class="menu-name">Menu</span>
+        </paper-toolbar>
+
+        <!-- Drawer Content -->
+        <paper-menu class="app-menu" ng-controller="MenuController">
+            <a ng-repeat="item in menuItems" ng-class="{ 'active': isActive(item.href) }"  href="#{{item.id}}">
+                <iron-icon icon="info"></iron-icon>
+                <span>{{item.title}}</span>
+            </a>
+        </paper-menu>
+    </paper-scroll-header-panel>
+
+    <!-- Main Area -->
+    <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
+        <!-- Main Toolbar -->
+        <paper-toolbar id="mainToolbar" class="tall">
+            <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+
+            <span class="space"></span>
+
+            <!-- Toolbar icons -->
+            <paper-icon-button icon="refresh"></paper-icon-button>
+            <paper-icon-button icon="search"></paper-icon-button>
+
+            <!-- Application name -->
+            <div class="middle middle-container">
+                <div class="app-name">Polymer Starter Kit</div>
+            </div>
+
+            <!-- Application sub title -->
+            <div class="bottom bottom-container">
+                <div class="bottom-title">The future of the web today</div>
+            </div>
+        </paper-toolbar>
+
+        <!-- Main Content -->
+        <div class="content" >
+            <iron-pages ng-view >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </iron-pages>
+        </div>
+    </paper-scroll-header-panel>
+</paper-drawer-panel>
+
+<paper-toast id="toast">
+    <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span>
+</paper-toast>
+
+<!-- Uncomment next block to enable Service Worker support (1/2) -->
+<!--
+<paper-toast id="caching-complete"
+             duration="6000"
+             text="Caching complete! This app will work offline.">
+</paper-toast>
+
+<platinum-sw-register auto-register
+                      clients-claim
+                      skip-waiting
+                      base-uri="bower_components/platinum-sw/bootstrap"
+                      on-service-worker-installed="displayInstalledToast">
+  <platinum-sw-cache default-cache-strategy="fastest"
+                     cache-config-file="cache-config.json">
+  </platinum-sw-cache>
+</platinum-sw-register>
+-->
+
+<!-- tableTop library for googleSheets info -->
 <script src="lib/gDoc.js/tabletop.js"></script>
 
 <script src="bower_components/angular/angular.min.js"></script>
@@ -42,4 +194,5 @@
 <script src="services/services.js"></script>
 <script src="controllers/controllers.js"></script>
 <script src="app.js"></script>
+</body>
 </html>
