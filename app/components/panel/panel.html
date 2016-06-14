@@ -1,0 +1,7 @@
+<div class="panel panel-default">
+    <div class="panel-heading" ng-show="article.title != ''">
+        <h3 class="panel-title" ng-bind-html="article.title"></h3>
+    </div>
+    <div class="panel-body"ng-bind-html="article.content"></div>
+    <div class="panel-footer"  ng-show="article.footer != ''" ng-bind-html="article.footer"></div>
+</div>

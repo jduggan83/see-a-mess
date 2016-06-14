@@ -7,12 +7,13 @@
 angular.module('cms', [
     'ngRoute',
     'ngSanitize',
+    'underscore',
     'controllers',
     'services'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $routeProvider
         .when('/:pageId', {
-            templateUrl : 'views/detail.html'
+            templateUrl : 'views/page.html'
         })
 }]);

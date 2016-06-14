@@ -3,7 +3,7 @@
  */
 var services = angular.module('services', []);
 
-services.factory('googleSheetService', ['$q', function($q) {
+services.factory('googleSheetService', ['$q', '_', function($q, _) {
     var siteDefinition = null;
 
     return {
@@ -28,8 +28,11 @@ services.factory('googleSheetService', ['$q', function($q) {
         getPages: function(){
             return siteDefinition['pages'].elements;
         },
-        getPageItems: function(pageId){
-            return siteDefinition[pageId].elements;
+        getPageItems: function(page){
+            return _.where(siteDefinition['articles'].elements, {page: page});
+        },
+        getWidgetData: function(widgetId, type){
+            return _.where(siteDefinition[type].elements, {id: widgetId})[0];
         }
     };
 }]);

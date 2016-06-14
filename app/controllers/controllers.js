@@ -16,6 +16,15 @@ controllers.controller('MenuController', ['$scope', '$routeParams', '$location',
     };
 }]);
 
-controllers.controller('PageController', ['$scope', 'googleSheetService','$routeParams', function($scope, googleSheetService, $routeParams) {
+controllers.controller('PageController', ['$scope', 'googleSheetService','$routeParams', '_', function($scope, googleSheetService, $routeParams, _) {
     $scope.articles = googleSheetService.getPageItems($routeParams.pageId);
+
+    _.each($scope.articles, function(article){
+        var data = googleSheetService.getWidgetData(article.id, article.type);
+        _.extend(article, data);
+    });
+
+    $scope.getComponentPath = function(type){
+        return 'components/' + type + '/' + type + '.html';
+    };
 }]);
