@@ -24,19 +24,21 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
 #### Todo
 
- - complete remaining types - table, list-group, carousel, thumbnail, pic with side content (as per example) 
+ - import working toolbar and carousel example, and ensure responsive menu is working
+ - implement types - table, list-group, carousel, thumbnail, pic with side content (as per example) 
  - view full article, from alert, panel and container
- - loading custom templates with properties
- - publish contents to mongo DB, for production mode
- - styling options on each component
+ - fix issue where entry point has to be at root 
  - sub menus when specifying parent id
- - fix issue where entry point has to be at root
- 
-#### Ideas
+ - loading custom templates with properties
+ - styling options on each component
+ - a spinner cover entire screen while excel is loading
+ - publish contents to mongo DB, for production mode
 
- - look at app page for specifying name, layout
+ 
+#### Nice to have
+
  - use LESS at runtime to specify colors etc
- - establih a few different page layout patterns to be chosen
  - Look downloading a few different themes that can be selected
  - link for a custom css file that can be published
- - a spinner cover entire screen while excel is loading
+ - enhance layout options - grid, blog etc...
+ - menu component to go to page, or full page article. Then maybe implement hide, for item in pages sheet
