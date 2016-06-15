@@ -30,6 +30,7 @@ To use this CMS, no hosting of any of the base html content is required, just a 
  - publish contents to mongo DB, for production mode
  - styling options on each component
  - sub menus when specifying parent id
+ - fix issue where entry point has to be at root
  
 #### Ideas
 
