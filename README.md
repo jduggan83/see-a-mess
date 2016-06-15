@@ -34,6 +34,7 @@ To use this CMS, no hosting of any of the base html content is required, just a 
  - styling options on each component
  - a spinner cover entire screen while excel is loading
  - publish contents to mongo DB, for production mode
+ - A header and footer - can go in global
 
  
 #### Nice to have
