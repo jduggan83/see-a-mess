@@ -1,2 +1,3 @@
 <h2 ng-bind-html="article.title"></h2>
 <p ng-bind-html="article.content"></p>
+<p ng-if="article.readmore == 'yes'"><a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a></p>

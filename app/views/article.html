@@ -1,0 +1,5 @@
+<div class="container" ng-controller="ArticleController">
+    <h2 ng-bind-html="article.title"></h2>
+    <p ng-bind-html="article.content"></p>
+    <p><a class="btn btn-default" ng-href="#/{{article.page}}" role="button">Back</a></p>
+</div>

@@ -1,1 +1,4 @@
-<div class="alert alert-success" ng-class="'alert-'+article.style" role="alert" ng-bind-html="article.content"></div>
+<div class="alert alert-success" ng-class="'alert-'+article.style" role="alert">
+    <span ng-bind-html="article.content"></span>
+    <p ng-if="article.readmore == 'yes'"><a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a></p>
+</div>

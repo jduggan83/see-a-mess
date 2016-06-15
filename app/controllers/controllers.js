@@ -20,11 +20,15 @@ controllers.controller('PageController', ['$scope', 'googleSheetService','$route
     $scope.articles = googleSheetService.getPageItems($routeParams.pageId);
 
     _.each($scope.articles, function(article){
-        var data = googleSheetService.getWidgetData(article.id, article.type);
-        _.extend(article, data);
+        article = googleSheetService.getArticleData(article);
+
     });
 
     $scope.getComponentPath = function(type){
         return 'components/' + type + '/' + type + '.html';
     };
+}]);
+
+controllers.controller('ArticleController', ['$scope', 'googleSheetService','$routeParams', '_', function($scope, googleSheetService, $routeParams, _) {
+    $scope.article = googleSheetService.getArticleData({id: $routeParams.articleId, type: $routeParams.type});
 }]);

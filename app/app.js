@@ -16,4 +16,8 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
         .when('/:pageId', {
             templateUrl : 'views/page.html'
         })
+
+        .when('/article/:articleId', {
+            templateUrl : 'views/article.html'
+        })
 }]);

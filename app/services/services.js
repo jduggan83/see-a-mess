@@ -31,8 +31,11 @@ services.factory('googleSheetService', ['$q', '_', function($q, _) {
         getPageItems: function(page){
             return _.where(siteDefinition['articles'].elements, {page: page});
         },
-        getWidgetData: function(widgetId, type){
-            return _.where(siteDefinition[type].elements, {id: widgetId})[0];
+        getArticleData: function(article){
+            article = _.where(siteDefinition['articles'].elements, {id: article.id})[0];
+            var widgetInfo = _.where(siteDefinition[article.type].elements, {id: article.id})[0];
+            _.extend(article, widgetInfo);
+            return article;
         }
     };
 }]);
