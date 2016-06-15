@@ -24,6 +24,7 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
 #### Todo
 
+ - change googlesheetService to accept widget object for getting widgetData
  - import working toolbar and carousel example, and ensure responsive menu is working
  - implement types - table, list-group, carousel, thumbnail, pic with side content (as per example) 
  - view full article, from alert, panel and container
