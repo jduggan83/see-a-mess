@@ -24,11 +24,12 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
 #### Todo
 
- - complete remaining types - table, list-group, carousel, thumnail, pic with side content (as per example) 
+ - complete remaining types - table, list-group, carousel, thumbnail, pic with side content (as per example) 
  - view full article, from alert, panel and container
  - loading custom templates with properties
  - publish contents to mongo DB, for production mode
- - styling on each component
+ - styling options on each component
+ - sub menus when specifying parent id
  
 #### Ideas
 
