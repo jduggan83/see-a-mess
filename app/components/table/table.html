@@ -1,0 +1,12 @@
+<table class="table table-striped">
+    <caption ng-bind-html="article.title"></caption>
+    <thead>
+    <tr>
+        <th ng-repeat="header in article.tableData.headers">{{header}}</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in article.tableData.items">
+            <td ng-repeat="header in article.tableData.headers">{{item[header]}}</td>
+        <tr>
+    </tbody>
+</table>

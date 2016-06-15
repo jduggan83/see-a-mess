@@ -24,16 +24,19 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
 #### Todo
 
- - change googlesheetService to accept widget object for getting widgetData
- - import working toolbar and carousel example, and ensure responsive menu is working
- - implement types - table, list-group, carousel, thumbnail, pic with side content (as per example) 
- - view full article, from alert, panel and container
- - fix issue where entry point has to be at root 
  - sub menus when specifying parent id
+ - publish contents to mongo DB, for production mode
  - loading custom templates with properties
+
+ - fix carousel
+ - solve issue with jumbotron
+ - add thumbnail or pic to container option
+ - fix issue where entry point has to be at root
+ - limit content, if readmore
+
+ - blog style for view article
  - styling options on each component
  - a spinner cover entire screen while excel is loading
- - publish contents to mongo DB, for production mode
  - A header and footer - can go in global
 
  

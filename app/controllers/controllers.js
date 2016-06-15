@@ -8,7 +8,8 @@ controllers.controller('MenuController', ['$scope', '$routeParams', '$location',
 
     googleSheetService.initialise(location.search.split('id=')[1]).then(function(){
         $scope.menuItems = googleSheetService.getPages();
-        $location.path('/'+$scope.menuItems[0].id)
+        $scope.app = googleSheetService.getApplicationInfo();
+        $location.path('/'+$scope.menuItems[0].id);
     });
 
     $scope.isActive = function(pageId){

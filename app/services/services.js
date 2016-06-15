@@ -23,7 +23,7 @@ services.factory('googleSheetService', ['$q', '_', function($q, _) {
             return defer.promise;
         },
         getApplicationInfo: function(){
-            return siteDefinition['global'].elements;
+            return siteDefinition['global'].elements[0];
         },
         getPages: function(){
             return siteDefinition['pages'].elements;
@@ -33,9 +33,23 @@ services.factory('googleSheetService', ['$q', '_', function($q, _) {
         },
         getArticleData: function(article){
             article = _.where(siteDefinition['articles'].elements, {id: article.id})[0];
-            var widgetInfo = _.where(siteDefinition[article.type].elements, {id: article.id})[0];
-            _.extend(article, widgetInfo);
+
+            if(siteDefinition[article.type] != null){
+                var widgetInfo = _.where(siteDefinition[article.type].elements, {id: article.id})[0];
+                _.extend(article, widgetInfo);
+            }
+
+            if(siteDefinition[article.id] != null){
+                article.tableData = this.getTableData(article.id);
+            }
+
             return article;
+        },
+        getTableData: function(id){
+            var tableData = {};
+            tableData.headers = siteDefinition[id].column_names;
+            tableData.items = siteDefinition[id].elements;
+            return tableData;
         }
     };
 }]);
