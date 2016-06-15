@@ -12,7 +12,7 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
     $ npm install -g bower
     $ npm install
-	$ bower install
+    $ bower install
 
 #### Debugging the app
 
@@ -22,14 +22,25 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
     $ npm start
 
-#### Ideas and todo
- - look at app page for specifying name, layout
- - use LESS at runtime to specify colors etc
- - establih a few different page layout patterns to be chosen
- - go through all components on bootstrap site and attempt to have these types available from sheet
- - id for images etc, or is there a better way to link them?
- - Look downloading a few different themes that can be selected
- - Id for a custom css file that can be published
- - look into how web components can be referenced - use one as an example
- - if spreadsheet becomes too big, have dev mode reading from sheet and then publish to a mongo db for prod mode
+#### Todo
+
+ - change googlesheetService to accept widget object for getting widgetData
+ - import working toolbar and carousel example, and ensure responsive menu is working
+ - implement types - table, list-group, carousel, thumbnail, pic with side content (as per example) 
+ - view full article, from alert, panel and container
+ - fix issue where entry point has to be at root 
+ - sub menus when specifying parent id
+ - loading custom templates with properties
+ - styling options on each component
  - a spinner cover entire screen while excel is loading
+ - publish contents to mongo DB, for production mode
+ - A header and footer - can go in global
+
+ 
+#### Nice to have
+
+ - use LESS at runtime to specify colors etc
+ - Look downloading a few different themes that can be selected
+ - link for a custom css file that can be published
+ - enhance layout options - grid, blog etc...
+ - menu component to go to page, or full page article. Then maybe implement hide, for item in pages sheet
