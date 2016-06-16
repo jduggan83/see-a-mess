@@ -32,15 +32,30 @@ services.factory('googleSheetService', ['$q', '_', function($q, _) {
             return _.where(siteDefinition['articles'].elements, {page: page});
         },
         getArticleData: function(article){
+			var me = this;
+			
             article = _.where(siteDefinition['articles'].elements, {id: article.id})[0];
 
             if(siteDefinition[article.type] != null){
-                var widgetInfo = _.where(siteDefinition[article.type].elements, {id: article.id})[0];
-                _.extend(article, widgetInfo);
+                
+				if(article.type == "jumbotron" || article.type == "carousel"){
+					var dataItems = _.where(siteDefinition[article.type].elements, {id: article.id});
+					var subArticles = [];
+					
+					_.each(dataItems, function(item){
+						subArticles.push(me.getArticleData({id: item.article}));
+					});
+					
+					article.subArticles = subArticles;
+					
+				}else{
+					var widgetInfo = _.where(siteDefinition[article.type].elements, {id: article.id})[0];
+					_.extend(article, widgetInfo);
+				}					
             }
 
             if(siteDefinition[article.id] != null){
-                article.tableData = this.getTableData(article.id);
+                article.tableData = me.getTableData(article.id);
             }
 
             return article;

@@ -1,0 +1,9 @@
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+            <div ng-class="{ 'col-md-4': article.size==1, 'col-md-8': article.size==2, 'col-md-12': article.size==3}" ng-repeat="article in jumbotron.subArticles">
+                <div ng-include src="getComponentPath(article.type)"></div>
+            </div>
+        </div>
+	</div>
+</div>
