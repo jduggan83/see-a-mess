@@ -7,6 +7,9 @@
 angular.module('cms', [
     'ngRoute',
     'ngSanitize',
+	'ngAnimate',
+	'ngTouch',
+	'ui.bootstrap',
     'underscore',
     'controllers',
     'services'

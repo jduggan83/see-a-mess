@@ -24,18 +24,18 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
 #### Todo
 
- - finish carousel where it references an article per slide
- - decide on component breakdown - featurette, container and all that
+ - limit content, if readmore for a container
  - loading custom templates with properties
  - fix issue where entry point has to be at root
- - limit content, if readmore for a container
- - blog style for view article
- - more styling options on each component
- - A header and footer - can go in global
  - publish contents to mongo DB, for production mode
+ 
+ - decide on component breakdown - featurette, container and all that
+ - more styling options on each component
+ - blog style for view article - and include the image
  
 #### Nice to have
 
+ - A header and footer - can go in global
  - a spinner cover entire screen while excel is loading
  - use LESS at runtime to specify colors etc
  - Look downloading a few different themes that can be selected
