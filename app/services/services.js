@@ -26,7 +26,23 @@ services.factory('googleSheetService', ['$q', '_', function($q, _) {
             return siteDefinition['global'].elements[0];
         },
         getPages: function(){
-            return siteDefinition['pages'].elements;
+			var pages = _.filter(siteDefinition['pages'].elements, function(page) {
+				 return page['parent-page'] === '';
+			});
+			
+			_.each(siteDefinition['pages'].elements, function(page){
+				if(page['parent-page'] !== ''){
+					var parentPage = _.where(siteDefinition['pages'].elements, {id: page['parent-page']})[0];
+					if(parentPage!=null){
+						if(parentPage.subPages==null){
+							parentPage.subPages = [];
+						}
+						parentPage.subPages.push(page);
+					}	
+				}
+			});
+			
+            return pages;
         },
         getPageItems: function(page){
             return _.where(siteDefinition['articles'].elements, {page: page});
