@@ -48,12 +48,10 @@ services.factory('googleSheetService', ['$q', '_', function($q, _) {
             return _.where(siteDefinition['articles'].elements, {page: page});
         },
         getArticleData: function(article){
-			var me = this;
-			
+			var me = this;			
             article = _.where(siteDefinition['articles'].elements, {id: article.id})[0];
 
-            if(siteDefinition[article.type] != null){
-                
+            if(siteDefinition[article.type] != null){                
 				if(article.type == "jumbotron" || article.type == "carousel"){
 					var dataItems = _.where(siteDefinition[article.type].elements, {id: article.id});
 					var subArticles = [];
@@ -68,12 +66,13 @@ services.factory('googleSheetService', ['$q', '_', function($q, _) {
 					var widgetInfo = _.where(siteDefinition[article.type].elements, {id: article.id})[0];
 					_.extend(article, widgetInfo);
 				}					
-            }
+            }	
 
             if(siteDefinition[article.id] != null){
-                article.tableData = me.getTableData(article.id);
+                article.data = me.getTableData(article.id);
             }
-
+			
+			me.getCustomType(article);			
             return article;
         },
         getTableData: function(id){
@@ -81,6 +80,14 @@ services.factory('googleSheetService', ['$q', '_', function($q, _) {
             tableData.headers = siteDefinition[id].column_names;
             tableData.items = siteDefinition[id].elements;
             return tableData;
+        },
+        getCustomType: function(article){			
+			var customType = _.where(siteDefinition['custom-type'].elements, {id: article.type});
+			
+			if(customType != null && customType[0] != null){
+				article.type = "custom-type";
+				article.customContent = customType[0].content;
+			}            
         }
     };
 }]);

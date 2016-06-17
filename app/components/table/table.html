@@ -2,11 +2,11 @@
     <caption ng-bind-html="article.title"></caption>
     <thead>
     <tr>
-        <th ng-repeat="header in article.tableData.headers">{{header}}</th>
+        <th ng-repeat="header in article.data.headers">{{header}}</th>
     </thead>
     <tbody>
-        <tr ng-repeat="item in article.tableData.items">
-            <td ng-repeat="header in article.tableData.headers">{{item[header]}}</td>
+        <tr ng-repeat="item in article.data.items">
+            <td ng-repeat="header in article.data.headers">{{item[header]}}</td>
         <tr>
     </tbody>
 </table>
