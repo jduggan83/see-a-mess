@@ -24,21 +24,19 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
 #### Todo
 
- - sub menus when specifying parent id
- - publish contents to mongo DB, for production mode
  - finish carousel where it references an article per slide
- - do same of jumbotron - references and article
+ - decide on component breakdown - featurette, container and all that
  - loading custom templates with properties
- - add thumbnail or pic to container option
  - fix issue where entry point has to be at root
- - limit content, if readmore
+ - limit content, if readmore for a container
  - blog style for view article
- - styling options on each component
- - a spinner cover entire screen while excel is loading
+ - more styling options on each component
  - A header and footer - can go in global
+ - publish contents to mongo DB, for production mode
  
 #### Nice to have
 
+ - a spinner cover entire screen while excel is loading
  - use LESS at runtime to specify colors etc
  - Look downloading a few different themes that can be selected
  - link for a custom css file that can be published
