@@ -30,6 +30,7 @@ To use this CMS, no hosting of any of the base html content is required, just a 
  - decide on component breakdown - featurette, container and all that
  - more styling options on each component, mainly carousel
  - blog style for view article - and include the image
+ - and have that if only one article on page?? - maybe
  
 #### Nice to have
 
