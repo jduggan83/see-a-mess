@@ -18,7 +18,13 @@ angular.module('cms', [
 ]).
 config(['$provide', '$locationProvider', '$routeProvider', function($provide, $locationProvider, $routeProvider) {	
 	
-	var CONFIG = {};
+	var CONFIG = {
+		"parentTypes": ["jumbotron", "carousel"],
+		"isParentType": function(type){
+			return this.parentTypes.indexOf(type) > -1;
+		}		
+	};
+	
 	var params = window.location.search.substring(1).split('&');
     	
 	for (var i = 0; i < params.length; i++) {

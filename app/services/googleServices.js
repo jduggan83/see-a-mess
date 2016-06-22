@@ -55,7 +55,7 @@ services.factory('googleSiteDefinitionService', ['$q', '_', 'CONFIG', function($
             article = _.where(siteDefinition['articles'].elements, {id: article.id})[0];
 
             if(siteDefinition[article.type] != null){                
-				if(article.type == "jumbotron" || article.type == "carousel"){
+				if(CONFIG.isParentType(article.type)){
 					var dataItems = _.where(siteDefinition[article.type].elements, {id: article.id});
 					var subArticles = [];
 					
