@@ -12,10 +12,20 @@ angular.module('cms', [
 	'ui.bootstrap',
     'underscore',
     'controllers',
-    'services'
+    'app.services.common',
+    'app.services.mongodb',
+    'app.services.google'
 ]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-    $routeProvider
+config(['$provide', '$locationProvider', '$routeProvider', function($provide, $locationProvider, $routeProvider) {	
+	
+	var CONFIG = {
+		mode: 'PREVIEW',
+		siteId: '1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk'
+	}
+	
+	$provide.value('CONFIG', CONFIG);
+	
+	$routeProvider
         .when('/:pageId', {
             templateUrl : 'views/page.html'
         })

@@ -1,20 +1,23 @@
 /**
  * Created by Jonathan on 06/06/2016.
  */
-var services = angular.module('services', []);
+var services = angular.module('app.services.google', []);
 
-services.factory('googleSheetService', ['$q', '_', function($q, _) {
+services.factory('googleSiteDefinitionService', ['$q', '_', 'CONFIG', function($q, _, CONFIG) {
     var siteDefinition = null;
 
     return {
-        initialise: function(googleSheetId){
+		initialised: function(){
+			return siteDefinition != null;
+		},
+        initialise: function(){
             var defer = $q.defer();
 
             Tabletop.init({
-                key: googleSheetId,
+                key: CONFIG.siteId,
                 callback: function(doc){
                     siteDefinition = doc;
-                    console.log("Initialised googleSheetService");
+                    console.log("Initialised googleSheetService " + CONFIG.siteId);
                     defer.resolve();
                 },
                 simpleSheet: false
