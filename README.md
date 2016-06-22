@@ -26,7 +26,6 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
  - limit content, if readmore for a container
  - loading custom templates with properties
- - fix issue where entry point has to be at root
  - publish contents to mongo DB, for production mode
  
  - decide on component breakdown - featurette, container and all that

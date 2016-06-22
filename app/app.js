@@ -18,10 +18,13 @@ angular.module('cms', [
 ]).
 config(['$provide', '$locationProvider', '$routeProvider', function($provide, $locationProvider, $routeProvider) {	
 	
-	var CONFIG = {
-		mode: 'PREVIEW',
-		siteId: '1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk'
-	}
+	var CONFIG = {};
+	var params = window.location.search.substring(1).split('&');
+    	
+	for (var i = 0; i < params.length; i++) {
+        var pair = params[i].split('=');
+        CONFIG[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+    }
 	
 	$provide.value('CONFIG', CONFIG);
 	
