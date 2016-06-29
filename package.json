@@ -4,9 +4,7 @@
   "description": "A google spreadsheet based CMS. Designed to operated as an online service only requiring a spreadsheet to specified format published fro google drive.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "./node_modules/.bin/nodemon index",
-    "start": "node index"
+    "dev": "./node_modules/.bin/nodemon index"
   },
   "repository": {
     "type": "git",
@@ -26,7 +24,13 @@
   },
   "homepage": "https://github.com/jduggan83/see-a-mess#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "body-parser": "^1.15.2",
+    "cookie-parser": "~1.3.3",
+    "express": "^4.13.4",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.5.1",
+    "morgan": "^1.7.0",
+    "serve-favicon": "~2.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.9.2"
