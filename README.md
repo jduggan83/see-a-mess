@@ -31,6 +31,7 @@ To use this CMS, no hosting of any of the base html content is required, just a 
  - decide on component breakdown - featurette, container and all that
  - more styling options on each component
  - blog style for view article - and include the image
+ - have a css property on all component, and styles get applied automaticall on root container
  
 #### Nice to have
 
