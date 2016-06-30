@@ -1,29 +1,21 @@
 /**
  * Created by Jonathan on 06/06/2016.
  */
-var express = require('express'),
-    path = require('path'),
-    favicon = require('serve-favicon'),
-    logger = require('morgan'),
-    cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser');
+var express    = require('express');        // call express
+var app        = express();                 // define our app using express
+var bodyParser = require('body-parser');
+
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static(__dirname + "/app"));
 
 var db = require('./model/db'),
     site = require('./model/sites');
 
-var routes = require('./routes/index'),
-    sites = require('./routes/sites');
-
-var app = express();
-
-// uncomment after placing your favicon in /public
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static('app'));
-
-app.use('/', routes);
+var sites = require('./routes/sites');
+app.use('/sites', sites);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -32,29 +24,29 @@ app.use(function(req, res, next) {
     next(err);
 });
 
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.json({ message: err.message });
+});
+
 // error handlers
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
-        res.render('error', {
+        res.json({
             message: err.message,
             error: err
         });
     });
 };
 
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
-
-app.listen(3000, function() {
-    console.log('listening on 3000')
+// START THE SERVER
+// =============================================================================
+var port = process.env.PORT || 3000;        // set our port
+app.listen(port, function() {
+    console.log('listening on ' + port)
 });
