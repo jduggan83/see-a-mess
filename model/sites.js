@@ -3,6 +3,7 @@
  */
 var mongoose = require('mongoose');
 var siteSchema = new mongoose.Schema({
-    siteDefinition: mongoose.Schema.Types.Mixed
+    siteDefinition: mongoose.Schema.Types.Mixed,
+    googleSheetId: String
 });
 mongoose.model('Site', siteSchema);

@@ -37,9 +37,11 @@ router.route('/')
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
         var siteDefinition = req.body.siteDefinition;
+        var googleSheetId = req.body.googleSheetId;
         //call the create function for our database
         mongoose.model('Site').create({
-            siteDefinition : siteDefinition
+            siteDefinition : siteDefinition,
+            googleSheetId : googleSheetId
         }, function (err, site) {
             if (err) {
                 res.send("There was a problem adding the information to the database.");
