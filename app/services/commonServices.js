@@ -94,10 +94,13 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 		publish:  function(){
 			var site = {
 				googleSheetId: CONFIG.siteId,
-				siteDefinition: siteDefinition,
+				twat: siteDefinition,
 				_id: _id
 			};
-			return $injector.get('mongoDBSiteDefinitionService').publish('/sites', site);
+
+			return $injector.get('mongoDBSiteDefinitionService').publish(site).then(function(response){
+				_id = response.data._id
+			});
 		}
 	};
 }]);
