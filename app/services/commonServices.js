@@ -4,7 +4,6 @@
 var services = angular.module('app.services.common', []);
 
 services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', function($q, _, $injector, CONFIG) {
-	var siteDefinition = null;
 	var retrievalService = null;
 
 	if(CONFIG.mode == "PREVIEW"){
@@ -13,13 +12,17 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 		retrievalService =  $injector.get('mongoDBSiteDefinitionService');
 	}
 
+	var siteDefinition = null;
+	var _id = null;
+
 	return {
 		initialised: function(){
 			return siteDefinition != null;
 		},
 		initialise: function(){
 			return retrievalService.initialise().then(function(response){
-				siteDefinition = response;
+				siteDefinition = response.siteDefinition;
+				_id = response._id
 			});
 		},
 		getApplicationInfo: function(){
@@ -88,6 +91,14 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 				article.type = "custom-type";
 				article.customContent = customType[0].content;
 			}
+		},
+		publish:  function(){
+			var site = {
+				googleSheetId: CONFIG.siteId,
+				siteDefinition: siteDefinition,
+				_id: _id
+			};
+			return $injector.get('mongoDBSiteDefinitionService').publish('/sites', site);
 		}
 	};
 }]);

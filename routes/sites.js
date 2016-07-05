@@ -38,19 +38,37 @@ router.route('/')
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
         var siteDefinition = req.body.siteDefinition;
         var googleSheetId = req.body.googleSheetId;
-        //call the create function for our database
-        mongoose.model('Site').create({
-            siteDefinition : siteDefinition,
-            googleSheetId : googleSheetId
-        }, function (err, site) {
-            if (err) {
-                res.send("There was a problem adding the information to the database.");
-            } else {
-                //Site has been created
-                console.log('POST creating new site: ' + site);
-                res.json(site);
+        var _id = req.body._id;
+
+        mongoose.model('Site').findById(req.body._id, function (err, site) {
+            if(site){
+                //update it
+                site.update({
+                    siteDefinition : siteDefinition
+                }, function (err, siteID) {
+                    if (err) {
+                        res.send("There was a problem updating the information to the database: " + err);
+                    }
+                    else {
+                        res.json(site);
+                    }
+                })
+            }else{
+                //call the create function for our database
+                mongoose.model('Site').create({
+                    siteDefinition : siteDefinition,
+                    googleSheetId : googleSheetId
+                }, function (err, site) {
+                    if (err) {
+                        res.send("There was a problem adding the information to the database.");
+                    } else {
+                        //Site has been created
+                        console.log('POST creating new site: ' + site);
+                        res.json(site);
+                    }
+                })
             }
-        })
+        });
     });
 
 // route middleware to validate :id

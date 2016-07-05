@@ -3,8 +3,13 @@
  */
 var controllers = angular.module('controllers',[]);
 
-controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope', '$location', 'siteDefinitionService', function($scope, $routeParams, $rootScope, $location, siteDefinitionService) {
+controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope', '$location', 'siteDefinitionService', function($scope, $routeParams, $rootScope, $location, siteDefinitionService, CONFIG) {
     $scope.menuItems = [];
+	$scope.showPublish = false;
+
+	if(CONFIG.mode == 'PREVIEW'){
+		$scope.showPublish = true;
+	};
 
     siteDefinitionService.initialise().then(function(){
 		$rootScope.$broadcast('siteDefinitionService::initialised');
@@ -17,8 +22,14 @@ controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope'
     });
 
     $scope.isActive = function(pageId){
-        return $routeParams.pageId == pageId;
-    };
+		return $routeParams.pageId == pageId;
+	};
+
+	$scope.publish = function(){
+		siteDefinitionService.publish().then(function(){
+
+		});
+	};
 }]);
 
 controllers.controller('PageController', ['$scope', 'siteDefinitionService','$routeParams', '_', function($scope, siteDefinitionService, $routeParams, _) {
