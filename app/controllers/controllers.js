@@ -10,14 +10,14 @@ controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope'
 
 	$scope.publish = {};
 	$scope.publish.show = (CONFIG.mode == 'PREVIEW');
-	$scope.publish.loading = false;
+	$scope.publish.publishing = false;
 	$scope.publish.message = '';
 
 	$scope.publish.publishSite = function(){
-		$scope.publish.loading = true;
+		$scope.publish.publishing = true;
 		siteDefinitionService.publish().then(function(){
 			$scope.publish.message = 'woop woop done';
-			$scope.publish.loading = false;
+			$scope.publish.publishing = false;
 		});
 	};
 

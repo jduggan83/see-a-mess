@@ -94,7 +94,7 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 		publish:  function(){
 			var site = {
 				googleSheetId: CONFIG.siteId,
-				twat: siteDefinition,
+				siteDefinition: {},
 				_id: _id
 			};
 

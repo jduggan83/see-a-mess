@@ -38,11 +38,9 @@
 						<a ng-if="item.subPages==null" href="#{{item.id}}">{{item.title}}</a>
 					</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li ng-if="publish.show">
-                        <div class="btn btn-primary" ng-click="publish.publishSite()">Publish</div>
-                    </li>
-                </ul>
+                <form class="navbar-form navbar-right" ng-if="publish.show">
+                    <button class="btn btn-success" ng-click="publish.publishSite()" ng-class="{ 'disabled': publish.publishing }"><span ng-if="!publish.publishing">Publish</span><span ng-if="publish.publishing">Publishing...</span></button>
+                </form>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
