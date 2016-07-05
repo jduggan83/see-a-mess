@@ -25,13 +25,11 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 #### Todo
 
  - limit content, if readmore for a container
- - loading custom templates with properties
- - publish contents to mongo DB, for production mode
- 
  - decide on component breakdown - featurette, container and all that
  - more styling options on each component
  - blog style for view article - and include the image
  - have a css property on all component, and styles get applied automaticall on root container
+ - loading custom templates with properties 
  
 #### Nice to have
 
