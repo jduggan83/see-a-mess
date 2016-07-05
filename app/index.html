@@ -38,6 +38,11 @@
 						<a ng-if="item.subPages==null" href="#{{item.id}}">{{item.title}}</a>
 					</li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-if="publish.show">
+                        <div class="btn btn-primary" ng-click="publish.publishSite()">Publish</div>
+                    </li>
+                </ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>

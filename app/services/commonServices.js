@@ -5,15 +5,14 @@ var services = angular.module('app.services.common', []);
 
 services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', function($q, _, $injector, CONFIG) {
 	var retrievalService = null;
+	var siteDefinition = null;
+	var _id = null;
 
 	if(CONFIG.mode == "PREVIEW"){
 		retrievalService = $injector.get('googleSiteDefinitionService');
 	}else{
 		retrievalService =  $injector.get('mongoDBSiteDefinitionService');
 	}
-
-	var siteDefinition = null;
-	var _id = null;
 
 	return {
 		initialised: function(){

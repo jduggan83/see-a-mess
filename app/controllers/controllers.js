@@ -3,12 +3,22 @@
  */
 var controllers = angular.module('controllers',[]);
 
-controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope', '$location', 'siteDefinitionService', function($scope, $routeParams, $rootScope, $location, siteDefinitionService, CONFIG) {
+controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope', '$location', 'siteDefinitionService', 'CONFIG', function($scope, $routeParams, $rootScope, $location, siteDefinitionService, CONFIG) {
     $scope.menuItems = [];
 	$scope.showPublish = false;
+	$scope.publishSuccess = '';
 
-	if(CONFIG.mode == 'PREVIEW'){
-		$scope.showPublish = true;
+	$scope.publish = {};
+	$scope.publish.show = (CONFIG.mode == 'PREVIEW');
+	$scope.publish.loading = false;
+	$scope.publish.message = '';
+
+	$scope.publish.publishSite = function(){
+		$scope.publish.loading = true;
+		siteDefinitionService.publish().then(function(){
+			$scope.publish.message = 'woop woop done';
+			$scope.publish.loading = false;
+		});
 	};
 
     siteDefinitionService.initialise().then(function(){
@@ -24,16 +34,9 @@ controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope'
     $scope.isActive = function(pageId){
 		return $routeParams.pageId == pageId;
 	};
-
-	$scope.publish = function(){
-		siteDefinitionService.publish().then(function(){
-
-		});
-	};
 }]);
 
 controllers.controller('PageController', ['$scope', 'siteDefinitionService','$routeParams', '_', function($scope, siteDefinitionService, $routeParams, _) {
-    
 	$scope.articles = [];
 	
 	if(!siteDefinitionService.initialised()){
