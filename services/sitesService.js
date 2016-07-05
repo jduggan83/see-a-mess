@@ -19,16 +19,13 @@ module.exports.findByGoogleSheetId = function(googleSheetId){
 };
 
 module.exports.save = function(site){
-    if(site._id == null){
-        return siteModel.create(site);
-    }else{
-        return this.findById(site._id).then(function(originalSite){
-            if(originalSite != null) {
-                return originalSite.update(site);
-            }else{
-                return siteModel.create(site);
-            }
-        });
-    }
+    return this.findByGoogleSheetId(site.googleSheetId).then(function(originalSite){
+        if(originalSite != null) {
+            originalSite.siteDefinition = site.siteDefinition;
+            return originalSite.save();
+        }else{
+            return siteModel.create(site);
+        }
+    });
 };
 

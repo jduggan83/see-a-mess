@@ -9,11 +9,11 @@ var bodyParser = require('body-parser');
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + "/app"));
 
 var db = require('./model/db'),
     site = require('./model/sites');
 
+app.use(express.static(__dirname + "/app"));
 var sites = require('./routes/sites');
 app.use('/sites', sites);
 
@@ -43,6 +43,8 @@ if (app.get('env') === 'development') {
         });
     });
 };
+
+app.disable('etag');
 
 // START THE SERVER
 // =============================================================================

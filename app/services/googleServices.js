@@ -12,10 +12,7 @@ services.factory('googleSiteDefinitionService', ['$q', '_', 'CONFIG', function($
                 key: CONFIG.siteId,
                 callback: function(doc){
                     console.log("Initialised googleSheetService " + CONFIG.siteId);
-                    var site = {
-                        siteDefinition: doc
-                    };
-                    defer.resolve(site);
+                    defer.resolve(doc);
                 },
                 simpleSheet: false
             });

@@ -6,7 +6,6 @@ var services = angular.module('app.services.common', []);
 services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', function($q, _, $injector, CONFIG) {
 	var retrievalService = null;
 	var siteDefinition = null;
-	var _id = null;
 
 	if(CONFIG.mode == "PREVIEW"){
 		retrievalService = $injector.get('googleSiteDefinitionService');
@@ -14,14 +13,29 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 		retrievalService =  $injector.get('mongoDBSiteDefinitionService');
 	}
 
+	function createRequestObject(){
+		var siteDefinitionObject = {};
+
+		for(siteItem in siteDefinition){
+			var item = {};
+			item.elements = siteDefinition[siteItem].elements;
+			item.column_names = siteDefinition[siteItem].column_names;
+			siteDefinitionObject[siteItem] = item;
+		};
+
+		return {
+			googleSheetId: CONFIG.siteId,
+			siteDefinition: siteDefinitionObject
+		};
+	}
+
 	return {
 		initialised: function(){
 			return siteDefinition != null;
 		},
 		initialise: function(){
-			return retrievalService.initialise().then(function(response){
-				siteDefinition = response.siteDefinition;
-				_id = response._id
+			return retrievalService.initialise().then(function(definition){
+				siteDefinition = definition;
 			});
 		},
 		getApplicationInfo: function(){
@@ -92,15 +106,7 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 			}
 		},
 		publish:  function(){
-			var site = {
-				googleSheetId: CONFIG.siteId,
-				siteDefinition: {},
-				_id: _id
-			};
-
-			return $injector.get('mongoDBSiteDefinitionService').publish(site).then(function(response){
-				_id = response.data._id
-			});
+			return $injector.get('mongoDBSiteDefinitionService').publish(createRequestObject());
 		}
 	};
 }]);

@@ -35,7 +35,7 @@ router.route('/')
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
         sitesService.save(req.body).then(function(site){
-            console.log('POST creating new site: ' + site);
+            console.log('saved site: ' + site._id);
             res.json(site);
         }).catch(function(err){
             res.send("There was a problem adding the information to the database.");
@@ -57,9 +57,9 @@ router.param('id', function(req, res, next, id) {
     });
 });
 
-router.route('/:id')
+router.route('/query-by-googleSheetId')
     .get(function(req, res) {
-        sitesService.findById(req.id).then(function(sites){
+        sitesService.findByGoogleSheetId(req.query.googleSheetId).then(function(site){
             console.log('GET Retrieving ID: ' + site._id);
             res.json(site);
         }).catch(function(err){
@@ -67,14 +67,15 @@ router.route('/:id')
         });
     });
 
-router.route('/query-by-googleSheetId')
+router.route('/:id')
     .get(function(req, res) {
-        sitesService.findByGoogleSheetId(req.googleSheetId).then(function(sites){
+        sitesService.findById(req.id).then(function(site){
             console.log('GET Retrieving ID: ' + site._id);
             res.json(site);
         }).catch(function(err){
             console.log('GET Error: There was a problem retrieving: ' + err);
         });
     });
+
 
 module.exports = router;
