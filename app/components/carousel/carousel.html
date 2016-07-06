@@ -1,15 +1,11 @@
-<div>
-  <div style="height: 305px; padding-top: 20px;">
-    <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-      <uib-slide ng-repeat="article in article.subArticles track by $index" index="$index">
+<uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+	<uib-slide ng-repeat="article in article.subArticles track by $index" index="$index">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-offset-2 col-md-8">
-					<div ng-include src="getComponentPath(article.type)"></div>		
-				</div>	
-			</div>	
-		</div>	
-      </uib-slide>
-    </uib-carousel>
-  </div>
-</div>
+					<div ng-include src="getComponentPath(article.type)"></div>
+				</div>
+			</div>
+		</div>
+	</uib-slide>
+</uib-carousel>

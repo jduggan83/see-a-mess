@@ -39,8 +39,8 @@
 					</li>
                 </ul>
                 <form class="navbar-form navbar-right" ng-if="publish.show">
-                    <button ng-if="publish.status != 'PUBLISHED'" class="btn btn-success" ng-click="publish.publishSite()" ng-class="{ 'disabled': publish.status == 'PUBLISHING' }"><span ng-if="publish.status == 'READY'">Publish</span><span ng-if="publish.status == 'PUBLISHING'">Publishing...</span></button>
-                    <div ng-if="publish.status == 'PUBLISHED'" class="alert alert-success publish-success" role="alert"><strong>Website published successfully</strong></div>
+                    <button ng-if="publish.status != 'PUBLISHED'" class="btn btn-primary" ng-click="publish.publishSite()" ng-class="{ 'disabled': publish.status == 'PUBLISHING' }"><span ng-if="publish.status == 'READY'">Publish</span><span ng-if="publish.status == 'PUBLISHING'">Publishing...</span></button>
+                    <div ng-if="publish.status == 'PUBLISHED'" class="alert alert-success publish-success" role="alert">Website published <strong>successfully</strong></div>
                 </form>
             </div><!--/.nav-collapse -->
         </div>
@@ -69,6 +69,7 @@
 <script src="services/commonServices.js"></script>
 <script src="services/googleServices.js"></script>
 <script src="services/mongoDBServices.js"></script>
+<script src="filters/filters.js"></script>
 <script src="controllers/controllers.js"></script>
 <script src="app.js"></script>
 </html>

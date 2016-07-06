@@ -14,7 +14,8 @@ angular.module('cms', [
     'controllers',
     'app.services.common',
     'app.services.mongodb',
-    'app.services.google'
+    'app.services.google',
+    'app.filters'
 ]).
 config(['$provide', '$locationProvider', '$routeProvider', function($provide, $locationProvider, $routeProvider) {	
 	
