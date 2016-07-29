@@ -25,7 +25,6 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 #### Todo
 
  - Fix styling on carousel
- - limit content, if readmore for a container
  - blog style for view article - and include the image
  - have a css property on all components, and styles get applied automatically on root container
  

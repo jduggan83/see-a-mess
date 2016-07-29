@@ -1,6 +1,9 @@
 <div style="text-align: center;">	
 	<img ng-if="article.image!=''" class="img-circle" ng-src="{{article.image}}" alt="Generic placeholder image" width="140" height="140">
 	<h2 ng-bind-html="article.title"></h2>
-	<p ng-bind-html="article.content"></p>
-	<p ng-if="article.readmore == 'yes'"><a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a></p>
+	<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
+	<span ng-if="article.readmore == 'yes'">
+		<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
+		<a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a>
+	</span>
 </div>
