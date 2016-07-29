@@ -68,12 +68,20 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 			article = _.where(siteDefinition['articles'].elements, {id: article.id})[0];
 
 			if(siteDefinition[article.type] != null){
-				if(CONFIG.isParentType(article.type)){
+				if(me.isParentArticle(article)){
 					var dataItems = _.where(siteDefinition[article.type].elements, {id: article.id});
 					var subArticles = [];
 
 					_.each(dataItems, function(item){
-						subArticles.push(me.getArticleData({id: item.article}));
+						var article = {};
+
+						if(item.article != ""){
+							article = me.getArticleData({id: item.article});
+						}else{
+							article = item;
+							article.id = "";
+						}
+						subArticles.push(article);
 					});
 
 					article.subArticles = subArticles;
@@ -107,6 +115,9 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 		},
 		publish:  function(){
 			return $injector.get('mongoDBSiteDefinitionService').publish(createRequestObject());
+		},
+		isParentArticle: function(article){
+			return ["jumbotron", "carousel"].indexOf(article.type) > -1 /*&& article.image==""*/;
 		}
 	};
 }]);
