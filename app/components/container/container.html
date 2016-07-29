@@ -1,9 +1,14 @@
-<div style="text-align: center;">	
+<div ng-style="{ 'text-align' : article.textAlign }" ng-class="{ 'panel panel-default': article.style=='panel', 'alert alert-success': article.style=='alert'}">
 	<img ng-if="article.image!=''" class="img-circle" ng-src="{{article.image}}" alt="Generic placeholder image" width="140" height="140">
-	<h2 ng-bind-html="article.title"></h2>
-	<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
-	<span ng-if="article.readmore == 'yes'">
-		<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
-		<a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a>
-	</span>
+	<div class="panel-heading" ng-if="article.title != '' && article.style=='panel'">
+		<h3 class="panel-title" ng-bind-html="article.title"></h3>
+	</div>
+	<h3 ng-if="article.title != '' && article.style!='panel'"></h3>
+	<div ng-class="{ 'panel-body': article.style=='panel'}">
+		<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
+		<span ng-if="article.readmore == 'yes'">
+			<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
+			<a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a>
+		</span>
+	</div>
 </div>
