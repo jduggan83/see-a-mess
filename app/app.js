@@ -12,6 +12,7 @@ angular.module('cms', [
 	'ui.bootstrap',
     'underscore',
     'controllers',
+    'directives',
     'app.services.common',
     'app.services.mongodb',
     'app.services.google',

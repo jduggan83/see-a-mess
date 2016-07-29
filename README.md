@@ -24,16 +24,15 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
 #### Todo
 
- - loading custom templates with properties
- - For user editing, have a give me html piece to create a custom element of this and paste in html to change - have think about best way to do this (powerful idea here)
  - Fix styling on carousel
  - limit content, if readmore for a container
- - more styling options on each component
  - blog style for view article - and include the image
  - have a css property on all components, and styles get applied automatically on root container
  
-#### Nice to have
+#### Next Phase
 
+ - more styling options on each component
+ - For user editing, have a give me html piece to create a custom element of this and paste in html to change - have think about best way to do this (powerful idea here)
  - A header and footer - can go in global
  - a spinner cover entire screen while excel is loading
  - use LESS at runtime to specify colors etc
