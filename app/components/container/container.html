@@ -8,21 +8,17 @@
 		<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
 		<span ng-if="article.readmore == 'yes'">
 			<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
-			<a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a>
+			<p><a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a></p>
 		</span>
 	</div>
 </div>
 <div ng-if="article.style =='jumbotron'" class="jumbotron" ng-style="{ 'text-align' : article.textAlign }">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h3 ng-if="article.title != ''" ng-bind-html="article.title"></h3>
-				<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
-				<span ng-if="article.readmore == 'yes'">
-					<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
-					<a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a>
-				</span>
-			</div>
-		</div>
+		<h1 ng-if="article.title != ''" ng-bind-html="article.title"></h1>
+		<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
+		<span ng-if="article.readmore == 'yes'">
+			<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
+			<p><a class="btn btn-primary" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a></p>
+		</span>
 	</div>
 </div>
