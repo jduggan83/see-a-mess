@@ -1,31 +1,39 @@
-<div ng-if="article.style =='panel'" ng-style="{ 'text-align' : article.textAlign }" class="panel panel-default">
-	<div class="panel-heading" ng-if="article.title != ''">
-		<h3 class="panel-title" ng-bind-html="article.title"></h3>
+<span ng-style="{ 'text-align' : article.textAlign }">
+	<div ng-if="article.style =='panel'" class="panel panel-default">
+		<div class="panel-heading" ng-if="article.title != ''">
+			<h3 class="panel-title" ng-bind-html="article.title"></h3>
+		</div>
+		<div class="panel-body">
+			<img ng-if="article.image!=''" class="img-circle" ng-src="{{article.image}}" alt="Generic placeholder image" width="140" height="140">
+			<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
+			<span ng-if="article.readmore == 'yes'">
+				<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
+				<p><a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a></p>
+			</span>
+		</div>
 	</div>
-	<div class="panel-body">
+	<div ng-if="article.style =='alert'" class="alert alert-info alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<strong ng-if="article.title != ''" ng-bind-html="article.title"></strong>
+		<span ng-bind-html="article.content"></span>
+	</div>
+	<div ng-if="article.style == 'jumbotron'" class="jumbotron">
+		<div class="container">
+			<h1 ng-if="article.title != ''" ng-bind-html="article.title"></h1>
+			<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
+			<span ng-if="article.readmore == 'yes'">
+				<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
+				<p><a class="btn btn-primary" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a></p>
+			</span>
+		</div>
+	</div>
+	<div ng-if="article.style == ''">
 		<img ng-if="article.image!=''" class="img-circle" ng-src="{{article.image}}" alt="Generic placeholder image" width="140" height="140">
+		<h2 ng-bind-html="article.title"></h2>
 		<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
 		<span ng-if="article.readmore == 'yes'">
 			<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
-			<p><a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a></p>
+			<a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a>
 		</span>
 	</div>
-</div>
-<div ng-if="article.style =='alert'" ng-style="{ 'text-align' : article.textAlign }" class="alert alert-success">
-	<h3 ng-if="article.title != ''" ng-bind-html="article.title"></h3>
-	<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
-	<span ng-if="article.readmore == 'yes'">
-		<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
-		<p><a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a></p>
-	</span>
-</div>
-<div ng-if="article.style =='jumbotron'" class="jumbotron" ng-style="{ 'text-align' : article.textAlign }">
-	<div class="container">
-		<h1 ng-if="article.title != ''" ng-bind-html="article.title"></h1>
-		<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
-		<span ng-if="article.readmore == 'yes'">
-			<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
-			<p><a class="btn btn-primary" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a></p>
-		</span>
-	</div>
-</div>
+</span>
