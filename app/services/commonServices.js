@@ -65,9 +65,13 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 		getPageItems: function(page){
 			return _.where(siteDefinition['articles'].elements, {page: page});
 		},
+		getPageDetail: function(pageId){
+			return _.where(siteDefinition['pages'].elements, {id: pageId})[0];
+		},
 		getArticleData: function(article){
 			var me = this;
 			article = _.where(siteDefinition['articles'].elements, {id: article.id})[0];
+			article.pageDetail = this.getPageDetail(article.page);
 
 			if(siteDefinition[article.type] != null){
 				if(me.isParentArticle(article)){

@@ -24,7 +24,6 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
 #### Todo
 
- - blog style for view article - and include the image
  - fix image in carousel not working
  
 #### Next Phase
