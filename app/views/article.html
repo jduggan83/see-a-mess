@@ -1,5 +1,17 @@
 <div class="container" ng-controller="ArticleController">
-    <h2 ng-bind-html="article.title"></h2>
-    <p ng-bind-html="article.content"></p>
-    <p><a class="btn btn-default" ng-href="#/{{article.page}}" role="button">Back</a></p>
+    <div class="container">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a ng-href="#/{{article.page}}">{{article.page}}</a></li>
+                <li class="active">{{article.title}}</li>
+            </ol>
+        </div>
+        <img ng-if="article.image!=''" ng-src="{{article.image}}" alt="Generic placeholder image" height="200">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-header" ng-bind-html="article.title"></h1>
+                <p ng-bind-html="article.content"></p>
+            </div>
+        </div>
+    </div>
 </div>
