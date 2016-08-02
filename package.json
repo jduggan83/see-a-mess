@@ -2,7 +2,7 @@
   "name": "see-a-mess",
   "version": "1.0.0",
   "description": "A google spreadsheet based CMS. Designed to operated as an online service only requiring a spreadsheet to specified format published fro google drive.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "./node_modules/.bin/nodemon index",
     "postinstall": "bower install"
