@@ -9,8 +9,10 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 
 	if(CONFIG.mode == "PREVIEW"){
 		retrievalService = $injector.get('googleSiteDefinitionService');
-	}else{
+	}else if(CONFIG.siteId){
 		retrievalService =  $injector.get('mongoDBSiteDefinitionService');
+	}else{
+		retrievalService =  $injector.get('defaultSiteDefinitionService');
 	}
 
 	function createRequestObject(){
@@ -106,18 +108,20 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 			return tableData;
 		},
 		getCustomType: function(article){
-			var customType = _.where(siteDefinition['custom-type'].elements, {id: article.type});
+			if(siteDefinition['custom-type'] != null){
+				var customType = _.where(siteDefinition['custom-type'].elements, {id: article.type});
 
-			if(customType != null && customType[0] != null){
-				article.type = "custom-type";
-				article.customContent = customType[0].content;
+				if(customType != null && customType[0] != null){
+					article.type = "custom-type";
+					article.customContent = customType[0].content;
+				}
 			}
 		},
 		publish:  function(){
 			return $injector.get('mongoDBSiteDefinitionService').publish(createRequestObject());
 		},
 		isParentArticle: function(article){
-			return ["jumbotron", "carousel"].indexOf(article.type) > -1 /*&& article.image==""*/;
+			return ["carousel"].indexOf(article.type) > -1 /*&& article.image==""*/;
 		}
 	};
 }]);

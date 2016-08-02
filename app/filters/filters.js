@@ -8,7 +8,7 @@ filters.filter('fullWidthComponent', function () {
         var filtered = [];
         for (var i = 0; i < items.length; i++) {
             var item = items[i];
-            if (item.type == 'featurette' || item.type == 'jumbotron' || (item.type == 'carousel' && item.size == '')) {
+            if (item.type == 'featurette' || item.style == 'jumbotron' || (item.type == 'carousel' && item.size == '')) {
                 filtered.push(item);
             }
         }
@@ -21,7 +21,7 @@ filters.filter('columnComponent', function () {
         var filtered = [];
         for (var i = 0; i < items.length; i++) {
             var item = items[i];
-            if ((item.type != 'featurette' && item.type != 'jumbotron' && item.type != 'carousel') || (item.type == 'carousel' && item.size != '')) {
+            if ((item.type != 'featurette' && item.type != 'carousel' && item.style != 'jumbotron') || (item.type == 'carousel' && item.size != '')) {
                 filtered.push(item);
             }
         }

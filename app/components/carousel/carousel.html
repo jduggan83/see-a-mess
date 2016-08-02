@@ -1,12 +1,12 @@
 <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
 	<uib-slide ng-repeat="article in article.subArticles track by $index" index="$index">
-		<!--<div class="container">
+		<div ng-if="article.image ==''" class="container">
 			<div class="row">
 				<div class="col-md-offset-2 col-md-8">
 					<div ng-include src="getComponentPath(article.type)"></div>
 				</div>
 			</div>
-		</div>-->
-		<img ng-if="article.image!=''" ng-src="{{article.image}}">
+		</div>
+		<img ng-if="article.image !=''" ng-src="{{article.image}}">
 	</uib-slide>
 </uib-carousel>

@@ -4,7 +4,7 @@
   "description": "A google spreadsheet based CMS. Designed to operated as an online service only requiring a spreadsheet to specified format published fro google drive.",
   "main": "server.js",
   "scripts": {
-    "dev": "./node_modules/.bin/nodemon index",
+    "dev": "./node_modules/.bin/nodemon server",
     "postinstall": "bower install"
   },
   "repository": {

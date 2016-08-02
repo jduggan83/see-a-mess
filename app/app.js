@@ -14,6 +14,7 @@ angular.module('cms', [
     'controllers',
     'directives',
     'app.services.common',
+    'app.services.default',
     'app.services.mongodb',
     'app.services.google',
     'app.filters'
