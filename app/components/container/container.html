@@ -4,7 +4,7 @@
 			<h3 class="panel-title" ng-bind-html="article.title"></h3>
 		</div>
 		<div class="panel-body">
-			<img ng-if="article.image!=''" class="img-circle" ng-src="{{article.image}}" alt="Generic placeholder image" width="140" height="140">
+			<img ng-if="article.image!=''" class="img-circle" ng-src="{{article.image}}" width="140" height="140">
 			<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
 			<span ng-if="article.readmore == 'yes'">
 				<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
@@ -27,8 +27,19 @@
 			</span>
 		</div>
 	</div>
+	<div ng-if="article.style == 'thumbnail'" class="thumbnail">
+		<img ng-if="article.image!=''" ng-src="{{article.image}}" style="height: 200px; width: 100%; display: block;">
+		<div class="caption">
+			<h3 ng-bind-html="article.title"></h3>
+			<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
+			<span ng-if="article.readmore == 'yes'">
+				<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
+				<a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a>
+			</span>
+		</div>
+	</div>
 	<div ng-if="article.style == ''">
-		<img ng-if="article.image!=''" class="img-circle" ng-src="{{article.image}}" alt="Generic placeholder image" width="140" height="140">
+		<img ng-if="article.image!=''" class="img-circle" ng-src="{{article.image}}" width="140" height="140">
 		<h2 ng-bind-html="article.title"></h2>
 		<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
 		<span ng-if="article.readmore == 'yes'">
