@@ -131,7 +131,7 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                         {
                             "id": "step-3",
                             "subTitle": "Enjoy Your New Site",
-                            "content": '<p>Your new site can be previewed at:</p><p>see-a-mess.azurewebsites.net?mode=PREVIEW&siteId=<b>[ID from step 2]</b></p>Once you are happy with your new website design, you can publish it for all to see.',
+                            "content": '<p>Your new site can be previewed at:</p><p class="btn btn-link">www.see-a-mess.azurewebsites.net?mode=PREVIEW&siteId=<b>[Google ID]</b></p><p>Once you are happy with your new website design, you can publish it for all to see.</p>',
                             "imageposition": "left",
                             "image": "https://doc-0o-5o-docs.googleusercontent.com/docs/securesc/krarign92t4dkfe53rpvnahch3plmjt3/jrn95jmphbifp3jfjqtoam8cmrr8hfds/1470225600000/17807566080320603348/17807566080320603348/0B-BDAJg-gbgwRW1wRTZkYXdQTDA"
                         }

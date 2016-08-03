@@ -122,7 +122,21 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 			}
 		},
 		publish:  function(){
-			return $injector.get('mongoDBSiteDefinitionService').publish(createRequestObject());
+			var promises = [];
+
+			for(siteItem in siteDefinition){
+				var siteItemObject = {};
+				siteItemObject.elements = siteDefinition[siteItem].elements;
+				siteItemObject.column_names = siteDefinition[siteItem].column_names;
+
+				return $injector.get('mongoDBSiteDefinitionService').publish({
+					googleSheetId: CONFIG.siteId,
+					siteItem: siteItem,
+					siteItemObject: siteItemObject
+				});
+			};
+
+			return $q.all(promises);
 		},
 		isParentArticle: function(article){
 			return ["carousel"].indexOf(article.type) > -1 /*&& article.image==""*/;

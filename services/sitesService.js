@@ -21,10 +21,16 @@ module.exports.findByGoogleSheetId = function(googleSheetId){
 module.exports.save = function(site){
     return this.findByGoogleSheetId(site.googleSheetId).then(function(originalSite){
         if(originalSite != null) {
-            originalSite.siteDefinition = site.siteDefinition;
+            originalSite.siteDefinition[site.siteItem] = site.siteItemObject;
             return originalSite.save();
         }else{
-            return siteModel.create(site);
+            var newSite = {
+                googleSheetId: site.googleSheetId,
+                siteDefinition: {
+                }
+            };
+            newSite.siteDefinition[site.siteItem] = site.siteItemObject;
+            return siteModel.create(newSite);
         }
     });
 };

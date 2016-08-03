@@ -47,8 +47,8 @@ if (app.get('env') === 'development') {
 app.disable('etag');
 
 // START THE SERVER
-// =============================================================================
-var port = process.env.PORT || 3000;        // set our port
+// =========================================
+var port = process.env.PORT || 3000;     
 app.listen(port, function() {
     console.log('listening on ' + port)
 });
