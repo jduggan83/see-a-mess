@@ -15,20 +15,12 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 		retrievalService =  $injector.get('defaultSiteDefinitionService');
 	}
 
-	function createRequestObject(){
-		var siteDefinitionObject = {};
-
-		for(siteItem in siteDefinition){
-			var item = {};
-			item.elements = siteDefinition[siteItem].elements;
-			item.column_names = siteDefinition[siteItem].column_names;
-			siteDefinitionObject[siteItem] = item;
-		};
-
-		return {
-			googleSheetId: CONFIG.siteId,
-			siteDefinition: siteDefinitionObject
-		};
+	function doAsyncSeries(arr) {
+		return arr.reduce(function (promise, item) {
+			return promise.then(function(result) {
+				return doSomethingAsync(result, item);
+			});
+		}, $q.when(initialValue));
 	}
 
 	return {
@@ -122,24 +114,35 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 			}
 		},
 		publish:  function(){
-			var promises = [];
+			var siteItems = [];
 
 			for(siteItem in siteDefinition){
 				var siteItemObject = {};
 				siteItemObject.elements = siteDefinition[siteItem].elements;
 				siteItemObject.column_names = siteDefinition[siteItem].column_names;
 
-				return $injector.get('mongoDBSiteDefinitionService').publish({
+				var singleSiteDefinition = {};
+				singleSiteDefinition[siteItem] = siteItemObject;
+
+				siteItems.push({
 					googleSheetId: CONFIG.siteId,
-					siteItem: siteItem,
-					siteItemObject: siteItemObject
+					siteDefinition: singleSiteDefinition
 				});
 			};
 
-			return $q.all(promises);
+			return this.publishSiteItem(siteItems, 0);
 		},
 		isParentArticle: function(article){
-			return ["carousel"].indexOf(article.type) > -1 /*&& article.image==""*/;
+			return ["carousel"].indexOf(article.type) > -1;
+		},
+		publishSiteItem: function(siteItems, index){
+			var me = this;
+			return $injector.get('mongoDBSiteDefinitionService').publish(siteItems[index]).then(function(){
+				index++;
+				if(index < siteItems.length){
+					return me.publishSiteItem(siteItems, index);
+				}
+			});
 		}
 	};
 }]);

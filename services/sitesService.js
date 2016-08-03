@@ -4,6 +4,7 @@
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var siteModel = mongoose.model('Site');
+var _ = require('underscore');
 
 module.exports.findAll = function(){
     return siteModel.find({});
@@ -21,16 +22,10 @@ module.exports.findByGoogleSheetId = function(googleSheetId){
 module.exports.save = function(site){
     return this.findByGoogleSheetId(site.googleSheetId).then(function(originalSite){
         if(originalSite != null) {
-            originalSite.siteDefinition[site.siteItem] = site.siteItemObject;
+            _.extend(originalSite.siteDefinition, site.siteDefinition);
             return originalSite.save();
         }else{
-            var newSite = {
-                googleSheetId: site.googleSheetId,
-                siteDefinition: {
-                }
-            };
-            newSite.siteDefinition[site.siteItem] = site.siteItemObject;
-            return siteModel.create(newSite);
+            return siteModel.create(site);
         }
     });
 };

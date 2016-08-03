@@ -27,12 +27,12 @@ To use this CMS, no hosting of any of the base html content is required, just a 
  - fix publish payload issue
  - fix image in carousel not working
  - fix how order works with items like jumbotron
+ - a spinner cover entire screen while excel is loading
  
 #### Next Phase
 
  - a map or iframe object
- - more styling options on each component
- - a spinner cover entire screen while excel is loading
+ - more styling options on each components
  - use LESS at runtime to specify for gloabal style variables
  - ability to choose a theme
  - link to a custom css file of a theme

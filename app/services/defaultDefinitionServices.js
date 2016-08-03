@@ -119,7 +119,7 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                             "subTitle": "Save to Google Drive",
                             "content": 'Download the template for creating your very first See A Mess website <a target="_blank" href="https://docs.google.com/spreadsheets/d/1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk/edit#gid=1870654690">here</a>. Then, save this file to your own personal google drive.',
                             "imageposition": "left",
-                            "image": "https://doc-00-5o-docs.googleusercontent.com/docs/securesc/krarign92t4dkfe53rpvnahch3plmjt3/j9kjmruitrohpgqrbap6c04i7lh4ma9j/1470218400000/17807566080320603348/17807566080320603348/0B-BDAJg-gbgwZllLQUZzQzA1c0E?e=view&nonce=sbise543nj4tk&user=17807566080320603348&hash=vac3db8uds2stg5fsde5c828oftt7uee"
+                            "image": "https://docs.google.com/uc?id=0B-BDAJg-gbgwZllLQUZzQzA1c0E"
                         },
                         {
                             "id": "step-2",
