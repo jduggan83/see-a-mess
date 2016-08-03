@@ -16,8 +16,8 @@
     <link href="css/carousel.css" rel="stylesheet">
     <link href="css/featurette.css" rel="stylesheet">
 </head>
-<body ng-app="cms">
-    <nav class="navbar navbar-default navbar-fixed-top" ng-controller="MenuController">
+<body ng-app="cms" ng-controller="MenuController">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -46,32 +46,37 @@
         </div>
     </nav>
     <div ng-view></div>
+    <div class="footer">
+        <div class="container">
+            <span ng-bind-html="app.footer"></span>
+        </div>
+    </div>
+    <!-- tableTop library for googleSheets info -->
+    <script src="lib/gDoc.js/tabletop.js"></script>
+
+    <!--jquery and bootstrap-->
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/tether/dist/js/tether.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/gDoc.js/tabletop.js"></script>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.min.js"></script>
+    <script src="bower_components/angular-underscore-module/angular-underscore-module.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+    <script src="services/commonServices.js"></script>
+    <script src="services/googleServices.js"></script>
+    <script src="services/mongoDBServices.js"></script>
+    <script src="services/defaultDefinitionServices.js"></script>
+    <script src="filters/filters.js"></script>
+    <script src="controllers/controllers.js"></script>
+    <script src="directives/directives.js"></script>
+    <script src="app.js"></script>
 </body>
-<!-- tableTop library for googleSheets info -->
-<script src="lib/gDoc.js/tabletop.js"></script>
-
-<!--jquery and bootstrap-->
-<script src="bower_components/underscore/underscore.js"></script>
-<script src="bower_components/tether/dist/js/tether.min.js"></script>
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="lib/gDoc.js/tabletop.js"></script>
-
-<script src="bower_components/angular/angular.min.js"></script>
-<script src="bower_components/angular-route/angular-route.min.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-<script src="bower_components/angular-animate/angular-animate.min.js"></script>
-<script src="bower_components/angular-touch/angular-touch.min.js"></script>
-<script src="bower_components/angular-underscore-module/angular-underscore-module.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-
-<script src="services/commonServices.js"></script>
-<script src="services/googleServices.js"></script>
-<script src="services/mongoDBServices.js"></script>
-<script src="services/defaultDefinitionServices.js"></script>
-<script src="filters/filters.js"></script>
-<script src="controllers/controllers.js"></script>
-<script src="directives/directives.js"></script>
-<script src="app.js"></script>
 </html>

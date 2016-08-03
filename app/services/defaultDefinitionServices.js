@@ -10,7 +10,8 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                 "global": {
                     "elements": [
                         {
-                            "title": "See A Mess"
+                            "title": "See A Mess",
+                            "footer": "Designed and built with empathy in our hearts and simpiclity in our minds by the See A Mess team."
                         }
                     ]
                 },
