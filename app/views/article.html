@@ -1,6 +1,6 @@
 <div class="container" ng-controller="ArticleController">
     <div class="container">
-        <div class="row">
+        <div class="row" ng-if="article.pageDetail != null">
             <ol class="breadcrumb">
                 <li><a ng-href="#/{{article.pageDetail.id}}">{{article.pageDetail.title}}</a></li>
                 <li class="active">{{article.title}}</li>

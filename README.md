@@ -25,18 +25,16 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 #### Todo
 
  - fix image in carousel not working
+ - fix how order
+ - menu component to go to page, or full page article. Then maybe implement hide, for item in pages sheet
+ - a map or iframe object again
+ - footer
  
 #### Next Phase
 
- - fix case sensitivity
- - have a css property on all components, and styles get applied automatically on root container
  - more styling options on each component
- - For user editing, have a give me html piece to create a custom element of this and paste in html to change - have think about best way to do this (powerful idea here)
- - A header and footer - can go in global
  - a spinner cover entire screen while excel is loading
- - use LESS at runtime to specify colors etc
- - Look downloading a few different themes that can be selected
- - link for a custom css file that can be published
- - enhance layout options - grid, blog etc...
- - menu component to go to page, or full page article. Then maybe implement hide, for item in pages sheet
- - a map object
+ - use LESS at runtime to specify for gloabal style variables
+ - ability to choose a theme
+ - link to a custom css file of a theme
+ - For user editing, have a give me html piece to create a custom element of this and paste in html to change - have think about best way to do this (powerful idea here)
