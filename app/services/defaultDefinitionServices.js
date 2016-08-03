@@ -87,7 +87,7 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                         {
                             "id": "welcome",
                             "style": "jumbotron",
-                            "content": '<p>All your website needs are finally solved</p><a target="_blank" href="/?siteId=1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk" class="btn btn-primary">View Live Demo</a>',
+                            "content": '<p>All your website needs are finally solved</p><a target="_blank" href="/?mode=PREVIEW&siteId=1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk" class="btn btn-primary">View Live Demo</a>',
                         },
                         {
                             "id": "about-1",
