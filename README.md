@@ -24,14 +24,18 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
 #### Todo
 
+ - fix publish payload issue
+ - fix live site
+ - image circle
+ - do get started steps
+- image circle showing for container
  - fix image in carousel not working
- - fix how order
- - menu component to go to page, or full page article. Then maybe implement hide, for item in pages sheet
- - a map or iframe object again
+ - fix how order works with items like jumbotron etc and then fix padding and shading
  - footer
  
 #### Next Phase
 
+ - a map or iframe object
  - more styling options on each component
  - a spinner cover entire screen while excel is loading
  - use LESS at runtime to specify for gloabal style variables

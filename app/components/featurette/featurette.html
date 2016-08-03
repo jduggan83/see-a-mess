@@ -2,14 +2,14 @@
 	<hr class="featurette-divider">
 	<div class="row featurette">
 		<div ng-if="article.imageposition=='left'" class="col-md-5">
-			<img class="featurette-image img-responsive center-block" ng-src="{{article.image}}" style="height: 375px; width:425px;" data-holder-rendered="true">
+			<img class="featurette-image img-responsive center-block" ng-src="{{article.image}}" data-holder-rendered="true">
 		</div>
 		<div class="col-md-7">
 			  <h2 class="featurette-heading"><span ng-bind-html="article.title"></span> <span class="text-muted" ng-bind-html="article.subTitle"></span></h2>
 			  <p class="lead" ng-bind-html="article.content"></p>
 		</div>
 		<div ng-if="article.imageposition =='right'" class="col-md-5">
-			<img class="featurette-image img-responsive center-block" ng-src="{{article.image}}" style="height: 375px; width:425px;" data-holder-rendered="true">
+			<img class="featurette-image img-responsive center-block" ng-src="{{article.image}}" data-holder-rendered="true">
 		</div>
 	</div>
 </div>

@@ -49,3 +49,8 @@
         margin-top: 120px;
     }
 }
+
+.featurette-image{
+    height: 375px;
+    width:425px;
+}
