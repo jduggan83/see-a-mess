@@ -58,7 +58,7 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                             "id": "about-3",
                             "type": "container",
                             "size":	"1",
-                            "title": "Endless Possibilites",
+                            "title": "Endless Possibilities",
                             "css": "text-align: center;",
                             "page": "home"
                         },
@@ -66,7 +66,8 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                             "id": "step-1",
                             "type": "featurette",
                             "title": "Step 1",
-                            "page": "get-started"
+                            "page": "get-started",
+                            "css": "background-color: #eee"
                         },
                         {
                             "id": "step-2",
@@ -78,7 +79,8 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                             "id": "step-3",
                             "type": "featurette",
                             "title": "Step 3",
-                            "page": "get-started"
+                            "page": "get-started",
+                            "css": "background-color: #eee"
                         }
                     ]
                 },

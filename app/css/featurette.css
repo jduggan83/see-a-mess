@@ -50,6 +50,12 @@
     }
 }
 
+.featurette{
+    padding-bottom: 24px;
+    padding-top: 24px;
+    margin-top: 0px;
+}
+
 .featurette-image{
     height: 375px;
     width:425px;
