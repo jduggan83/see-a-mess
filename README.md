@@ -26,9 +26,7 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
  - fix publish payload issue
  - fix live site
- - image circle
- - do get started steps
-- image circle showing for container
+ - image circle in or out
  - fix image in carousel not working
  - fix how order works with items like jumbotron etc and then fix padding and shading
  - footer
