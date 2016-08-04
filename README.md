@@ -13,7 +13,6 @@ For more information on this online service, including a live demo and instructi
 
     $ npm install -g bower
     $ npm install
-    $ bower install
 
 #### Debugging the app
 
