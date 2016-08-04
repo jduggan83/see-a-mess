@@ -24,15 +24,14 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 
 #### Todo
 
- - fix publish payload issue
  - fix image in carousel not working
- - fix how order works with items like jumbotron
- - a spinner cover entire screen while excel is loading
+ - mongo hosting
  
 #### Next Phase
 
+ - fix how order works with items like jumbotron
  - a map or iframe object
- - more styling options on each components
+ - more "style" options on each container or a way to pass classes
  - use LESS at runtime to specify for gloabal style variables
  - ability to choose a theme
  - link to a custom css file of a theme

@@ -90,7 +90,7 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                         {
                             "id": "welcome",
                             "style": "jumbotron",
-                            "content": '<p>All your website needs are finally solved</p><a target="_blank" href="/?mode=PREVIEW&siteId=1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk" class="btn btn-primary">View Live Demo</a>',
+                            "content": '<p>All your website needs are finally solved</p><a target="_blank" href="/?siteId=1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk" class="btn btn-primary">View Live Demo</a>',
                         },
                         {
                             "id": "about-1",
@@ -126,14 +126,14 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                             "subTitle": "Publish the Template",
                             "content": 'Publish the saved spreadsheet to the web by choosing the option on Google Sheets. Take note of the link that your spreadsheet is viewable at.',
                             "imageposition": "right",
-                            "image": "https://doc-10-5o-docs.googleusercontent.com/docs/securesc/krarign92t4dkfe53rpvnahch3plmjt3/9huh7iolhq3q5gi0baqpf940upe36ovo/1470225600000/17807566080320603348/17807566080320603348/0B-BDAJg-gbgwWWNsb1luQ3JSaDg?e=view"
+                            "image": "https://docs.google.com/uc?id=0B-BDAJg-gbgwWWNsb1luQ3JSaDg"
                         },
                         {
                             "id": "step-3",
                             "subTitle": "Enjoy Your New Site",
                             "content": '<p>Your new site can be previewed at:</p><p class="btn btn-link">www.see-a-mess.azurewebsites.net?mode=PREVIEW&siteId=<b>[Google ID]</b></p><p>Once you are happy with your new website design, you can publish it for all to see.</p>',
                             "imageposition": "left",
-                            "image": "https://doc-0o-5o-docs.googleusercontent.com/docs/securesc/krarign92t4dkfe53rpvnahch3plmjt3/jrn95jmphbifp3jfjqtoam8cmrr8hfds/1470225600000/17807566080320603348/17807566080320603348/0B-BDAJg-gbgwRW1wRTZkYXdQTDA"
+                            "image": "https://docs.google.com/uc?id=0B-BDAJg-gbgwRW1wRTZkYXdQTDA"
                         }
                     ]
                 }
