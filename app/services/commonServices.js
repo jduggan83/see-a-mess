@@ -79,17 +79,16 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 					var subArticles = [];
 
 					_.each(dataItems, function(item){
-						var article = {};
+						var subArticle = {};
 
 						if(item.article != ""){
-							article = me.getArticleData({id: item.article});
+							subArticle = me.getArticleData({id: item.article});
 						}else{
-							article = item;
-							article.id = "";
+							subArticle = _.clone(item);
+							subArticle.id = "";
 						}
-						subArticles.push(article);
+						subArticles.push(subArticle);
 					});
-
 					article.subArticles = subArticles;
 
 				}else{

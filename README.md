@@ -24,11 +24,10 @@ For more information on this online service, including a live demo and instructi
  
 #### Bugs and Ideas
 
- - Problem with images in carousel on second visit
+ - sub-menus object being persisted causing duplic sub menus
  - fix how order works with items like jumbotron
  - a map or iframe object
  - more "style" options on each container or a way to pass classes
  - use LESS at runtime to specify for gloabal style variables
- - ability to choose a theme
- - link to a custom css file of a theme
- - For user editing, have a give me html piece to create a custom element of this and paste in html to change - have think about best way to do this (powerful idea here)
+ - ability to choose a theme and/or link to a custom css file
+ - For user editing, have a give me html piece to create a custom element of this and paste in html to change.
