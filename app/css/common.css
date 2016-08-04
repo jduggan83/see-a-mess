@@ -31,8 +31,8 @@ body {
   width: auto;
 }
 
-.row{
-	margin-top: 10px;
+.row-item{
+	margin-top: 20px;
 }
 
 .publish-success{

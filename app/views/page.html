@@ -4,7 +4,7 @@
         <div style="{{article.css}}" ng-include src="getComponentPath(article.type)"></div>
     </span>
     <div class="container">
-        <div class="row">
+        <div class="row row-item">
             <div ng-class="{ 'col-md-4': article.size==1, 'col-md-8': article.size==2, 'col-md-12': article.size==3, 'col-md-12': article.size==''}" ng-repeat="article in articles | columnComponent">
                 <div style="{{article.css}}" ng-include src="getComponentPath(article.type)"></div>
             </div>
