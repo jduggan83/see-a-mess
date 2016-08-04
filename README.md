@@ -2,9 +2,8 @@
 
 A google spreadsheet based CMS. The CMS is designed to operate as an online service only requiring a reference to a spreadsheet published from google drive. 
 
-For more information on this online service, including a live demo and instructions on how to get started, go to
-
-[see-a-mess.azurewebsites.net](see-a-mess.azurewebsites.net)
+For more information on this online service, including a live demo and instructions on how to get started:
+#### Go To [see-a-mess.azurewebsites.net](see-a-mess.azurewebsites.net)
 
 #### Requirements
 
