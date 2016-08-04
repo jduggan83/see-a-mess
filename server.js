@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+app.use(bodyParser.json({limit: '50mb'}));
 
 var db = require('./model/db'),
     site = require('./model/sites');
@@ -43,12 +43,11 @@ if (app.get('env') === 'development') {
         });
     });
 };
-
 app.disable('etag');
 
 // START THE SERVER
 // =========================================
-var port = process.env.PORT || 3000;     
+var port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log('listening on ' + port)
 });

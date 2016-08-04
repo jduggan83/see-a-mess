@@ -13,7 +13,6 @@ angular.module('cms', [
     'underscore',
     'controllers',
     'directives',
-    'mwl.bluebird',
     'app.services.common',
     'app.services.default',
     'app.services.mongodb',

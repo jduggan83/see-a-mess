@@ -15,12 +15,20 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 		retrievalService =  $injector.get('defaultSiteDefinitionService');
 	}
 
-	function doAsyncSeries(arr) {
-		return arr.reduce(function (promise, item) {
-			return promise.then(function(result) {
-				return doSomethingAsync(result, item);
-			});
-		}, $q.when(initialValue));
+	function createRequestObject(){
+		var siteDefinitionObject = {};
+
+		for(siteItem in siteDefinition){
+			var item = {};
+			item.elements = siteDefinition[siteItem].elements;
+			item.column_names = siteDefinition[siteItem].column_names;
+			siteDefinitionObject[siteItem] = item;
+		};
+
+		return {
+			googleSheetId: CONFIG.siteId,
+			siteDefinition: siteDefinitionObject
+		};
 	}
 
 	return {
@@ -114,35 +122,10 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 			}
 		},
 		publish:  function(){
-			var siteItems = [];
-
-			for(siteItem in siteDefinition){
-				var siteItemObject = {};
-				siteItemObject.elements = siteDefinition[siteItem].elements;
-				siteItemObject.column_names = siteDefinition[siteItem].column_names;
-
-				var singleSiteDefinition = {};
-				singleSiteDefinition[siteItem] = siteItemObject;
-
-				siteItems.push({
-					googleSheetId: CONFIG.siteId,
-					siteDefinition: singleSiteDefinition
-				});
-			};
-
-			return this.publishSiteItem(siteItems, 0);
+			return $injector.get('mongoDBSiteDefinitionService').publish(createRequestObject());
 		},
 		isParentArticle: function(article){
-			return ["carousel"].indexOf(article.type) > -1;
-		},
-		publishSiteItem: function(siteItems, index){
-			var me = this;
-			return $injector.get('mongoDBSiteDefinitionService').publish(siteItems[index]).then(function(){
-				index++;
-				if(index < siteItems.length){
-					return me.publishSiteItem(siteItems, index);
-				}
-			});
+			return ["carousel"].indexOf(article.type) > -1 /*&& article.image==""*/;
 		}
 	};
 }]);
