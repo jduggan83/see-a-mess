@@ -2,7 +2,7 @@
 
 A google spreadsheet based CMS. The CMS is designed to operate as an online service only requiring a reference to a spreadsheet published from google drive. 
 
-To use this CMS, no hosting of any of the base html content is required, just a google drive account that will host a spreadsheet containing the site definition. Any additional content can also be stored on google drive and then referenced in the spreadsheet like images, word docs, css files, etc.
+For more information on this online service, including a live demo and instructions on how to get started, go to see-a-mess.azurewebsites.net
 
 #### Requirements
 
@@ -21,14 +21,10 @@ To use this CMS, no hosting of any of the base html content is required, just a 
 #### Running the app
 
     $ npm start
-
-#### Todo
-
- - fix image in carousel not working
- - mongo hosting
  
-#### Next Phase
+#### Bugs and Ideas
 
+ - Problem with images in carousel on second visit
  - fix how order works with items like jumbotron
  - a map or iframe object
  - more "style" options on each container or a way to pass classes
