@@ -1,6 +1,6 @@
 ### See-a-Mess
 
-A google spreadsheet based CMS. The CMS is designed to operate as an online service only requiring a reference to a spreadsheet published from google drive. 
+A google spreadsheet based CMS framework. The framework is designed to operate as an online service only requiring a reference to a spreadsheet published from google drive.
 
 For more information on this online service, including a live demo and instructions on how to get started:
 #### Go To [see-a-mess.azurewebsites.net](http://see-a-mess.azurewebsites.net/)
@@ -24,7 +24,8 @@ For more information on this online service, including a live demo and instructi
  
 #### Bugs and Ideas
 
- - sub-menus object being persisted causing duplic sub menus
+ - sort out carousel articles
+ - thumbnail image for readmore
  - fix how order works with items like jumbotron
  - a map or iframe object
  - more "style" options on each container or a way to pass classes

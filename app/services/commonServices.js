@@ -25,6 +25,8 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 			siteDefinitionObject[siteItem] = item;
 		};
 
+		siteDefinitionObject['pages'].subPages = null;
+
 		return {
 			googleSheetId: CONFIG.siteId,
 			siteDefinition: siteDefinitionObject
