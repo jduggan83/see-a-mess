@@ -1,4 +1,4 @@
-<div ng-if="article.style =='panel'" class="panel panel-default">
+<div ng-if="article.style =='panel'" class="panel" ng-class="article.style2 == '' ? 'panel-default' : 'panel-' + article.style2">
 	<div class="panel-heading" ng-if="article.title != ''">
 		<h3 class="panel-title"><span compile="article.title"></span></h3>
 	</div>
@@ -11,12 +11,11 @@
 		</span>
 	</div>
 </div>
-<div ng-if="article.style =='alert'" class="alert alert-info alert-dismissible" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<div ng-if="article.style =='alert'" class="alert" ng-class="article.style2 == '' ? 'alert-info' : 'alert-' + article.style2" role="alert">
 	<strong ng-if="article.title != ''"><span compile="article.title"></span></strong>
 	<span compile="article.content"></span>
 </div>
-<div ng-if="article.style == 'jumbotron'" class="jumbotron">
+<div ng-if="article.style == 'jumbotron'" class="jumbotron" ng-class="article.style2 == '' ? '' : 'alert-' + article.style2">
 	<div class="container">
 		<h1 ng-if="article.title != ''"><span compile="article.title"></span></h1>
 		<p ng-if="article.limit == ''"><span compile="article.content"></span></p>
@@ -26,7 +25,7 @@
 		</span>
 	</div>
 </div>
-<div ng-if="article.style == 'thumbnail'" class="thumbnail">
+<div ng-if="article.style == 'thumbnail'" class="thumbnail" ng-class="article.style2 == '' ? '' : 'alert-' + article.style2">
 	<a ng-if="article.limit != ''" ng-href="#/article/{{article.id}}?type={{article.type}}">
 		<img ng-if="article.image!=''" ng-src="{{article.image}}" class="thumbnail-image">
 	</a>
@@ -41,7 +40,7 @@
 		</span>
 	</div>
 </div>
-<div ng-if="article.style == 'default' || article.style == 'circle-image'">
+<div ng-if="article.style == 'default' || article.style == 'circle-image'" ng-class="article.style2 == '' ? '' : 'alert-' + article.style2" class="container-default">
 	<img ng-if="article.image!=''" ng-src="{{article.image}}" width="140" height="140" ng-class="{ 'img-circle': article.style == 'circle-image' }">
 	<h2><span compile="article.title"></span></h2>
 	<p ng-if="article.limit == ''"><span compile="article.content"></span></p>

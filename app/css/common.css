@@ -71,3 +71,7 @@ body {
 .thumbnail-image{
   width: 100%;
 }
+
+.container-default{
+  padding: 5px;
+}

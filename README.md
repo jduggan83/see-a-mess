@@ -24,10 +24,10 @@ For more information on this online service, including a live demo and instructi
  
 #### Bugs and Ideas
 
- - html in limit sections not rendered fully
- - more "style" options on each container or a way to pass classes
  - fix how order works with items like jumbotron
  - a map or iframe object
  - use LESS at runtime to specify for gloabal style variables
  - ability to choose a theme and/or link to a custom css file
+ - animations
  - For user editing, have a give me html piece to create a custom element of this and paste in html to change.
+ - html in sections with a limit (preview section) only renders basic html not full styles
