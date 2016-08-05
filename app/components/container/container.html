@@ -4,8 +4,8 @@
 	</div>
 	<div class="panel-body">
 		<img ng-if="article.image!=''" class="img-circle" ng-src="{{article.image}}" width="140" height="140">
-		<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
-		<span ng-if="article.readmore == 'yes'">
+		<p ng-if="article.limit == ''"><span compile="article.content"></span></p>
+		<span ng-if="article.limit != ''">
 			<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
 			<p><a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a></p>
 		</span>
@@ -14,34 +14,38 @@
 <div ng-if="article.style =='alert'" class="alert alert-info alert-dismissible" role="alert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	<strong ng-if="article.title != ''" ng-bind-html="article.title"></strong>
-	<span ng-bind-html="article.content"></span>
+	<span compile="article.content"></span>
 </div>
 <div ng-if="article.style == 'jumbotron'" class="jumbotron">
 	<div class="container">
 		<h1 ng-if="article.title != ''" ng-bind-html="article.title"></h1>
-		<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
-		<span ng-if="article.readmore == 'yes'">
+		<p ng-if="article.limit == ''"><span compile="article.content"></span></p>
+		<span ng-if="article.limit != ''">
 			<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
 			<p><a class="btn btn-primary" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a></p>
 		</span>
 	</div>
 </div>
 <div ng-if="article.style == 'thumbnail'" class="thumbnail">
-	<img ng-if="article.image!=''" ng-src="{{article.image}}" style="height: 200px; width: 100%; display: block;">
+	<a ng-if="article.limit != ''" ng-href="#/article/{{article.id}}?type={{article.type}}">
+		<img ng-if="article.image!=''" ng-src="{{article.image}}" class="thumbnail-image">
+	</a>
+	<a ng-if="article.limit == ''">
+		<img ng-if="article.image!=''" ng-src="{{article.image}}" class="thumbnail-image">
+	</a>
 	<div class="caption">
 		<h3 ng-bind-html="article.title"></h3>
-		<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
-		<span ng-if="article.readmore == 'yes'">
+		<p ng-if="article.limit == ''"><span compile="article.content"></span></p>
+		<span ng-if="article.limit != ''">
 			<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
-			<a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a>
 		</span>
 	</div>
 </div>
 <div ng-if="article.style == '' || article.style == 'circle-image'">
 	<img ng-if="article.image!=''" ng-src="{{article.image}}" width="140" height="140" ng-class="{ 'img-circle': article.style == 'circle-image' }">
 	<h2 ng-bind-html="article.title"></h2>
-	<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
-	<span ng-if="article.readmore == 'yes'">
+	<p ng-if="article.limit == ''"><span compile="article.content"></span></p>
+	<span ng-if="article.limit != ''">
 		<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
 		<a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a>
 	</span>

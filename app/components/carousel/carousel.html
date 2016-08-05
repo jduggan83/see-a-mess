@@ -4,8 +4,8 @@
 			<div class="row">
 				<div class="col-md-offset-1 col-md-10">
 					<h2 ng-bind-html="article.title"></h2>
-					<p ng-if="article.readmore != 'yes'" ng-bind-html="article.content"></p>
-					<span ng-if="article.readmore == 'yes'">
+					<p ng-if="article.limit == ''"><span compile="article.content"></span></p>
+					<span ng-if="article.limit != ''">
 						<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
 						<a class="btn btn-default" ng-href="#/article/{{article.id}}?type={{article.type}}" role="button">Read More »</a>
 					</span>
