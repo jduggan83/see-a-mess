@@ -3,7 +3,7 @@
 		<div ng-if="article.article != ''" class="carousel-caption">
 			<div class="row">
 				<div class="col-md-offset-1 col-md-10">
-					<h2 ng-bind-html="article.title"></h2>
+					<h2 ><span compile="article.title"></span></h2>
 					<p ng-if="article.limit == ''"><span compile="article.content"></span></p>
 					<span ng-if="article.limit != ''">
 						<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
@@ -13,6 +13,6 @@
 			</div>
 		</div>
 		<img ng-if="article.image !=''" ng-src="{{article.image}}">
-		<div ng-if="article.article =='' && article.caption !=''" class="carousel-caption" ng-bind-html="article.caption"></div>
+		<div ng-if="article.article =='' && article.caption !=''" class="carousel-caption"><span compile="article.caption"></span></div>
 	</uib-slide>
 </uib-carousel>

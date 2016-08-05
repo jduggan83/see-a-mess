@@ -1,6 +1,6 @@
 <div ng-if="article.style =='panel'" class="panel panel-default">
 	<div class="panel-heading" ng-if="article.title != ''">
-		<h3 class="panel-title" ng-bind-html="article.title"></h3>
+		<h3 class="panel-title"><span compile="article.title"></span></h3>
 	</div>
 	<div class="panel-body">
 		<img ng-if="article.image!=''" class="img-circle" ng-src="{{article.image}}" width="140" height="140">
@@ -13,12 +13,12 @@
 </div>
 <div ng-if="article.style =='alert'" class="alert alert-info alert-dismissible" role="alert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<strong ng-if="article.title != ''" ng-bind-html="article.title"></strong>
+	<strong ng-if="article.title != ''"><span compile="article.title"></span></strong>
 	<span compile="article.content"></span>
 </div>
 <div ng-if="article.style == 'jumbotron'" class="jumbotron">
 	<div class="container">
-		<h1 ng-if="article.title != ''" ng-bind-html="article.title"></h1>
+		<h1 ng-if="article.title != ''"><span compile="article.title"></span></h1>
 		<p ng-if="article.limit == ''"><span compile="article.content"></span></p>
 		<span ng-if="article.limit != ''">
 			<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
@@ -34,7 +34,7 @@
 		<img ng-if="article.image!=''" ng-src="{{article.image}}" class="thumbnail-image">
 	</a>
 	<div class="caption">
-		<h3 ng-bind-html="article.title"></h3>
+		<h3><span compile="article.title"></span></h3>
 		<p ng-if="article.limit == ''"><span compile="article.content"></span></p>
 		<span ng-if="article.limit != ''">
 			<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>
@@ -43,7 +43,7 @@
 </div>
 <div ng-if="article.style == 'default' || article.style == 'circle-image'">
 	<img ng-if="article.image!=''" ng-src="{{article.image}}" width="140" height="140" ng-class="{ 'img-circle': article.style == 'circle-image' }">
-	<h2 ng-bind-html="article.title"></h2>
+	<h2><span compile="article.title"></span></h2>
 	<p ng-if="article.limit == ''"><span compile="article.content"></span></p>
 	<span ng-if="article.limit != ''">
 		<p><span ng-bind-html="article.content | limitTo: article.limit"></span>...</p>

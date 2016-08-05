@@ -4,7 +4,7 @@
 			<img class="featurette-image img-responsive center-block" ng-src="{{article.image}}" data-holder-rendered="true">
 		</div>
 		<div class="col-md-7">
-			  <h2 class="featurette-heading"><span ng-bind-html="article.title"></span> <span class="text-muted" ng-bind-html="article.subTitle"></span></h2>
+			  <h2 class="featurette-heading"><span compile="article.title"></span> <span class="text-muted" compile="article.subTitle"></span></h2>
 			  <p class="lead"><span compile="article.content"></span></p>
 		</div>
 		<div ng-if="article.imageposition =='right'" class="col-md-5">

@@ -9,7 +9,7 @@
         <img class="row-item" ng-if="article.image!=''" ng-src="{{article.image}}" alt="Generic placeholder image" height="200">
         <div class="row row-item">
             <div class="col-md-12">
-                <h1 class="page-header" ng-bind-html="article.title"></h1>
+                <h1 class="page-header"><span compile="article.title"></span></h1>
                 <p><span compile="article.content"></span></p>
             </div>
         </div>
