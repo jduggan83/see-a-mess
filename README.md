@@ -27,6 +27,7 @@ For more information on this online service, including a live demo and instructi
  - more "style" options on each container or a way to pass classes
  - thumbnail image for readmore. remove readmore for all
  - fix how order works with items like jumbotron
+
  - a map or iframe object
  - use LESS at runtime to specify for gloabal style variables
  - ability to choose a theme and/or link to a custom css file
