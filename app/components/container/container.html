@@ -41,7 +41,7 @@
 		</span>
 	</div>
 </div>
-<div ng-if="article.style == '' || article.style == 'circle-image'">
+<div ng-if="article.style == 'default' || article.style == 'circle-image'">
 	<img ng-if="article.image!=''" ng-src="{{article.image}}" width="140" height="140" ng-class="{ 'img-circle': article.style == 'circle-image' }">
 	<h2 ng-bind-html="article.title"></h2>
 	<p ng-if="article.limit == ''"><span compile="article.content"></span></p>
