@@ -7,16 +7,18 @@ controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope'
 	$scope.isLoading = true;
 	$scope.menuItems = [];
 	$scope.showPublish = false;
-	$scope.publishSuccess = '';
 
 	$scope.publish = {};
 	$scope.publish.show = (CONFIG.mode == 'PREVIEW');
 	$scope.publish.status = "READY";
+	$scope.publish.url = location.protocol + '//' + location.host + '?siteId=' + CONFIG.siteId;
 
 	$scope.publish.publishSite = function(){
 		$scope.publish.status = "PUBLISHING";
 		siteDefinitionService.publish().then(function(){
 			$scope.publish.status = "PUBLISHED";
+		}).catch(function(error){
+			$scope.publish.status = "ERROR";
 		});
 	};
 

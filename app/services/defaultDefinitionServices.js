@@ -117,7 +117,7 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                         {
                             "id": "step-1",
                             "subTitle": "Save to Google Drive",
-                            "content": 'Download the template for creating your very first See A Mess website <a target="_blank" href="https://docs.google.com/spreadsheets/d/1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk/edit#gid=1870654690">here</a>. Then, save this file to your own personal google drive.',
+                            "content": 'Download the template for creating your very first See A Mess website <a href="https://docs.google.com/spreadsheets/d/1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk/export?format=xlsx">here</a>. Then, upload this file to your own personal google drive.',
                             "imageposition": "left",
                             "image": "https://docs.google.com/uc?id=0B-BDAJg-gbgwZllLQUZzQzA1c0E"
                         },

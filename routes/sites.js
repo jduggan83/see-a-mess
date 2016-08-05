@@ -38,7 +38,8 @@ router.route('/')
             console.log('saved site: ' + site._id);
             res.json(site);
         }).catch(function(err){
-            res.send("There was a problem adding the information to the database.");
+            res.status(500);
+            res.send(err);
         });
     });
 

@@ -42,8 +42,9 @@
 					</li>
                 </ul>
                 <form class="navbar-form navbar-right" ng-if="publish.show">
-                    <button ng-if="publish.status != 'PUBLISHED'" class="btn btn-primary" ng-click="publish.publishSite()" ng-class="{ 'disabled': publish.status == 'PUBLISHING' }"><span ng-if="publish.status == 'READY'">Publish</span><span ng-if="publish.status == 'PUBLISHING'">Publishing...</span></button>
-                    <div ng-if="publish.status == 'PUBLISHED'" class="alert alert-success publish-success" role="alert">Website published <strong>successfully</strong></div>
+                    <button ng-if="publish.status == 'READY'" class="btn btn-primary" ng-click="publish.publishSite()" ng-class="{ 'disabled': publish.status == 'PUBLISHING' }"><span ng-if="publish.status == 'READY'">Publish</span><span ng-if="publish.status == 'PUBLISHING'">Publishing...</span></button>
+                    <div ng-if="publish.status == 'PUBLISHED'" class="alert alert-success publish-success" role="alert">Website published successfully. <a target="_blank" href="{{publish.url}}">View live site here</a></div>
+                    <div ng-if="publish.status == 'ERROR'" class="alert alert-danger publish-success" role="alert">Error publishing website. Please refresh and try again.</div>
                 </form>
             </div><!--/.nav-collapse -->
         </div>

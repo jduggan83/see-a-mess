@@ -1,13 +1,13 @@
 <div class="container" ng-controller="ArticleController">
     <div class="container">
-        <div class="row" ng-if="article.pageDetail != null">
+        <div class="row row-item" ng-if="article.pageDetail != null">
             <ol class="breadcrumb">
                 <li><a ng-href="#/{{article.pageDetail.id}}">{{article.pageDetail.title}}</a></li>
                 <li class="active">{{article.title}}</li>
             </ol>
         </div>
-        <img ng-if="article.image!=''" ng-src="{{article.image}}" alt="Generic placeholder image" height="200">
-        <div class="row">
+        <img class="row-item" ng-if="article.image!=''" ng-src="{{article.image}}" alt="Generic placeholder image" height="200">
+        <div class="row row-item">
             <div class="col-md-12">
                 <h1 class="page-header" ng-bind-html="article.title"></h1>
                 <p ng-bind-html="article.content"></p>

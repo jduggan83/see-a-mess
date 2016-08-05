@@ -25,7 +25,10 @@ services.factory('siteDefinitionService', ['$q', '_', '$injector', 'CONFIG', fun
 			siteDefinitionObject[siteItem] = item;
 		};
 
-		siteDefinitionObject['pages'].subPages = null;
+		//remove subPages element, as this is addedd on render
+		_.each(siteDefinition["pages"].elements, function(page){
+			page.subPages = null;
+		});
 
 		return {
 			googleSheetId: CONFIG.siteId,
