@@ -54,10 +54,42 @@ controllers.controller('PageController', ['$scope', 'siteDefinitionService','$ro
 		_.each($scope.articles, function(article){
 			article = siteDefinitionService.getArticleData(article);
 		});
-	}	
 
-    $scope.getComponentPath = function(type){
-        return 'components/' + type + '/' + type + '.html';
+		var html = '';
+		var openRow = false;
+		for(var i=0; i< $scope.articles.length; i++){
+			var article =  $scope.articles[i];
+			
+			if(isFullWidthComponent(article)){
+				if(openRow){
+					html += '</div></div>';
+					openRow = false;
+				}
+
+				html += '<div style="'+article.css+'"><component article="articles['+ i +']" type="'+ article.type +'"></component></div>';
+			}else{
+				if(!openRow){
+					html += '<div class="container"><div class="row">';
+					openRow = true;
+				}
+
+				html += '<div class="col-md-' + article.size*4 + '">';
+				html += '<div class="row-item" style="'+article.css+'"><component article="articles['+ i +']" type="'+ article.type +'"></component></div>';
+				html += '</div>';
+			}
+		}
+		$scope.html = html;
+	}
+
+	function isFullWidthComponent(article){
+		if (article.type == 'featurette' || article.style == 'jumbotron' || (article.type == 'carousel' && article.size == '')) {
+			return true;
+		}
+		return false;
+	}
+
+    function getComponentPath(type){
+        return "'components/" + type + "/" + type + ".html'";
     };
 }]);
 

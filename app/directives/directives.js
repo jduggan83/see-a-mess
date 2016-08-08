@@ -23,4 +23,20 @@ directives.directive('compile', ['$compile', function ($compile) {
             }
         );
     };
-}])
+}]);
+
+directives.directive('component', function () {
+    return {
+        restrict: 'E',
+        scope: {
+            article: '=',
+            type: '@'
+        },
+        templateUrl: function(element, attrs) {
+            return "components/" + attrs.type + "/" + attrs.type + ".html";
+        },
+        link: function ($scope, element, attrs) {
+
+        }
+    }
+});
