@@ -54,26 +54,27 @@ controllers.controller('PageController', ['$scope', 'siteDefinitionService','$ro
 		_.each($scope.articles, function(article){
 			article = siteDefinitionService.getArticleData(article);
 		});
+		generateArticleHTML();
+	}
 
+	function generateArticleHTML(){
 		var html = '';
 		var openRow = false;
 		for(var i=0; i< $scope.articles.length; i++){
 			var article =  $scope.articles[i];
-			
+
 			if(isFullWidthComponent(article)){
 				if(openRow){
 					html += '</div></div>';
 					openRow = false;
 				}
-
 				html += '<div style="'+article.css+'"><component article="articles['+ i +']" type="'+ article.type +'"></component></div>';
 			}else{
 				if(!openRow){
 					html += '<div class="container"><div class="row">';
 					openRow = true;
 				}
-
-				html += '<div class="col-md-' + article.size*4 + '">';
+				html += '<div class="col-md-' + getArticleSize(article) + '">';
 				html += '<div class="row-item" style="'+article.css+'"><component article="articles['+ i +']" type="'+ article.type +'"></component></div>';
 				html += '</div>';
 			}
@@ -82,15 +83,23 @@ controllers.controller('PageController', ['$scope', 'siteDefinitionService','$ro
 	}
 
 	function isFullWidthComponent(article){
-		if (article.type == 'featurette' || article.style == 'jumbotron' || (article.type == 'carousel' && article.size == '')) {
+		if (article.type == 'featurette'
+			|| (article.style == 'jumbotron' && (article.style.size == null ||article.style.size =='' ))
+			|| (article.type == 'carousel' && (article.size == '' || article.style.size ==''))) {
 			return true;
 		}
 		return false;
 	}
 
-    function getComponentPath(type){
-        return "'components/" + type + "/" + type + ".html'";
-    };
+	function getArticleSize(article){
+		var size = article.size;
+
+		if(size == null || size ==''){
+			return 12;
+		}
+
+		return size * 4;
+	}
 }]);
 
 controllers.controller('ArticleController', ['$scope', 'siteDefinitionService','$routeParams', '_', function($scope, siteDefinitionService, $routeParams, _) {
