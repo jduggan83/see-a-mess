@@ -34,7 +34,7 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                         {
                             "id": "welcome",
                             "type": "container",
-                            "size":	"3",
+                            "size":	"",
                             "title": "Welcome to See A Mess",
                             "css": "text-align: center;",
                             "page": "home"
