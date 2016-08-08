@@ -84,8 +84,8 @@ controllers.controller('PageController', ['$scope', 'siteDefinitionService','$ro
 
 	function isFullWidthComponent(article){
 		if (article.type == 'featurette'
-			|| (article.style == 'jumbotron' && (article.style.size == null ||article.style.size =='' ))
-			|| (article.type == 'carousel' && (article.size == '' || article.style.size ==''))) {
+			|| (article.style == 'jumbotron' && (article.size == null ||article.size == '' ))
+			|| (article.type == 'carousel' && (article.size == null || article.size == ''))) {
 			return true;
 		}
 		return false;
