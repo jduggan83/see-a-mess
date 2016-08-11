@@ -102,8 +102,9 @@ controllers.controller('PageController', ['$scope', 'siteDefinitionService','$ro
 	}
 }]);
 
-controllers.controller('ArticleController', ['$scope', 'siteDefinitionService','$routeParams', '_', function($scope, siteDefinitionService, $routeParams, _) {
+controllers.controller('ArticleController', ['$scope', 'siteDefinitionService','$routeParams', '_', 'CONFIG', function($scope, siteDefinitionService, $routeParams, _, CONFIG) {
     $scope.article = {};
+	$scope.articleUrl = window.location.href;
 	
 	if(!siteDefinitionService.initialised()){
 		$scope.$on('siteDefinitionService::initialised', function() {
@@ -115,5 +116,5 @@ controllers.controller('ArticleController', ['$scope', 'siteDefinitionService','
 	
 	function getArticle(){
 		$scope.article = siteDefinitionService.getArticleData({id: $routeParams.articleId, type: $routeParams.type});
-	}	
+	}
 }]);
