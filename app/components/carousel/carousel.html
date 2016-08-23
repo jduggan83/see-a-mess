@@ -1,4 +1,4 @@
-<h2><span compile="article.title"></span></h2>
+<h2 ng-if="article.title != ''"><span compile="article.title"></span></h2>
 <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
 	<uib-slide ng-repeat="article in article.subArticles track by $index" index="$index">
 		<div ng-if="article.article != ''" class="carousel-caption">
