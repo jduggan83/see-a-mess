@@ -22,12 +22,10 @@ For more information on this online service, including a live demo and instructi
 
     $ npm start
  
-#### Outstanding constraints and new Ideas
+#### Features to Implement
 
- - use LESS at runtime to specify for gloabal style variables of bootstrap
- - ability to choose a theme and/or link to a custom css file
- - a map or video object, or just an iframe for any other content
- - twitter facebook and other social media components
- - use of animations
+ - ability to choose from 4 or 5 themese
+ - load a custom css file
+ - ability to override bootstrap core colors, using less variables
+ - introduce options for animations
  - For user editing, have a give me html piece to create a custom element of this and paste in html to change.
- - html in sections with a limit (preview section) only renders basic html not full styles
