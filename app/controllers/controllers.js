@@ -39,14 +39,17 @@ controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope'
 }]);
 
 controllers.controller('PageController', ['$scope', 'siteDefinitionService','$routeParams', '_', function($scope, siteDefinitionService, $routeParams, _) {
+	$scope.page = {};
 	$scope.articles = [];
 	
 	if(!siteDefinitionService.initialised()){
 		$scope.$on('siteDefinitionService::initialised', function() {
 			getArticles();
+			$scope.page = siteDefinitionService.getPageDetail($routeParams.pageId);
 		});
 	}else{
 		getArticles();
+		$scope.page = siteDefinitionService.getPageDetail($routeParams.pageId);
 	}
 		
 	function getArticles(){

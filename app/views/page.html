@@ -1,4 +1,14 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div ng-controller="PageController">
+    <header ng-if="page.header!=''" && ng-if="page.subHeader!=''">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 ng-if="page.header!=''"><span compile="page.header"></span></h1>
+                    <p ng-if="page.subHeader!=''"><span compile="page.subHeader"></span></p>
+                </div>
+            </div>
+        </div>
+    </header>
     <span compile="html"></span>
 </div>

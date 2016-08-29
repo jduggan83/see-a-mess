@@ -20,25 +20,21 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                         {
                             "id": "home",
                             "title": "About",
-                            "parent-page": ""
+                            "parent-page": "",
+                            "header": "Welcome to See A Mess",
+                            "subHeader": '<p>All your website needs are finally solved</p><br><a target="_blank" href="/?siteId=1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk" class="btn btn-primary">View Live Demo</a>'
                         },
                         {
                             "id": "get-started",
                             "title": "Get Started",
-                            "parent-page": ""
+                            "parent-page": "",
+                            "header": "",
+                            "subHeader": ""
                         }
                     ]
                 },
                 "articles": {
                     "elements": [
-                        {
-                            "id": "welcome",
-                            "type": "container",
-                            "size":	"",
-                            "title": "Welcome to See A Mess",
-                            "css": "text-align: center;",
-                            "page": "home"
-                        },
                         {
                             "id": "about-1",
                             "type": "container",
@@ -87,12 +83,6 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                 },
                 "container": {
                     "elements": [
-                        {
-                            "id": "welcome",
-                            "style": "jumbotron",
-                            "limit": "",
-                            "content": '<p>All your website needs are finally solved</p><a target="_blank" href="/?siteId=1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk" class="btn btn-primary">View Live Demo</a>',
-                        },
                         {
                             "id": "about-1",
                             "style": "default",

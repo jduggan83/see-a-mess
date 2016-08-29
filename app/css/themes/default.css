@@ -3,6 +3,25 @@ body {
     color: #5a5a5a;
 }
 
+header{
+    text-align: center;
+    background-color: #eee;
+    color: #5a5a5a;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    font-size: 24px;
+}
+
+header h1{
+    font-size: 60px;
+}
+
+header p{
+    margin-bottom: 0;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
 .footer {
     padding-top: 50px;
     padding-bottom: 50px;
