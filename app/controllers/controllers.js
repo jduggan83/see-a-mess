@@ -26,7 +26,7 @@ controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope'
 		$rootScope.$broadcast('siteDefinitionService::initialised');
         $scope.menuItems = siteDefinitionService.getPages();
         $scope.app = siteDefinitionService.getApplicationInfo();
-
+		
 		if($location.path() === ""){
 			$location.path('/'+$scope.menuItems[0].id);
 		}

@@ -14,24 +14,24 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/tether/dist/css/tether.min.css" rel="stylesheet">
 
-    <!-- Common css and Components CSS -->
-    <link href="css/common/common.css" rel="stylesheet">
-    <link href="css/common/carousel.css" rel="stylesheet">
-    <link href="css/common/featurette.css" rel="stylesheet">
-
-    <!--themes-->
-    <link href="css/themes/default.css" rel="stylesheet">
-
     <!--3rd party css-->
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet">
 </head>
 <body ng-app="cms" ng-controller="MenuController" style="{{app.css}}">
+    <!--import chosen theme-->
+    <link href="css/themes/{{app.theme}}.css" rel="stylesheet">
+
+    <!-- Common css and Components CSS -->
+    <link href="css/common/common.css" rel="stylesheet">
+    <link href="css/common/carousel.css" rel="stylesheet">
+    <link href="css/common/featurette.css" rel="stylesheet">
+
     <div class="loading" ng-if="isLoading">
         <i class="fa fa-cog fa-spin fa-5x fa-fw" style="color: #777;"></i>
         <span class="sr-only">Loading...</span>
     </div>
-    <nav class="navbar navbar-default navbar-fixed-top navbar-custom affix">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">

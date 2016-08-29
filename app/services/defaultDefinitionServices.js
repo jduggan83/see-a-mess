@@ -11,7 +11,8 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                     "elements": [
                         {
                             "title": "See A Mess",
-                            "footer": "Designed and built with empathy in our hearts and simpiclity in our minds by the See A Mess team."
+                            "footer": "Designed and built with empathy in our hearts and simpiclity in our minds by the See A Mess team.",
+                            "theme": "default"
                         }
                     ]
                 },
@@ -28,8 +29,8 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                             "id": "get-started",
                             "title": "Get Started",
                             "parent-page": "",
-                            "header": "",
-                            "subHeader": ""
+                            "header": "Get Started",
+                            "subHeader": "Begin designing your new website in just 1 minute"
                         }
                     ]
                 },
@@ -63,8 +64,7 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                             "id": "step-1",
                             "type": "featurette",
                             "title": "Step 1",
-                            "page": "get-started",
-                            "css": "background-color: #eee"
+                            "page": "get-started"
                         },
                         {
                             "id": "step-2",
@@ -76,8 +76,7 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                             "id": "step-3",
                             "type": "featurette",
                             "title": "Step 3",
-                            "page": "get-started",
-                            "css": "background-color: #eee"
+                            "page": "get-started"
                         }
                     ]
                 },
@@ -117,6 +116,7 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                         },
                         {
                             "id": "step-2",
+                            "style": "default",
                             "subTitle": "Publish the Template",
                             "content": 'Publish the saved spreadsheet to the web by choosing the option on Google Sheets. Take note of the link that your spreadsheet is viewable at.',
                             "imageposition": "right",

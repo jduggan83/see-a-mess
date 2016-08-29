@@ -1,30 +1,16 @@
 body {
-    padding-top: 50px;
     color: #5a5a5a;
 }
 
 header{
-    text-align: center;
-    background-color: #eee;
+    background-color: #eee !important;
     color: #5a5a5a;
-    padding-top: 60px;
-    padding-bottom: 60px;
-    font-size: 24px;
 }
 
-header h1{
-    font-size: 60px;
-}
-
-header p{
-    margin-bottom: 0;
-    font-weight: 300;
-    line-height: 1.4;
+.alert-default{
+    background-color: #eee;
 }
 
 .footer {
-    padding-top: 50px;
-    padding-bottom: 50px;
     color: #99979c;
-    text-align: center;
 }

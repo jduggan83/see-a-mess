@@ -1,14 +1,16 @@
-<div class="container marketing">
-	<div class="row featurette">
-		<div ng-if="article.imageposition=='left'" class="col-md-5">
-			<img class="featurette-image img-responsive center-block" ng-src="{{article.image}}" data-holder-rendered="true">
-		</div>
-		<div class="col-md-7">
-			  <h2 class="featurette-heading"><span compile="article.title"></span> <span class="text-muted" compile="article.subTitle"></span></h2>
-			  <p class="lead"><span compile="article.content"></span></p>
-		</div>
-		<div ng-if="article.imageposition =='right'" class="col-md-5">
-			<img class="featurette-image img-responsive center-block" ng-src="{{article.image}}" data-holder-rendered="true">
+<div ng-class="'alert-' + article.style">
+	<div class="container">
+		<div class="row featurette">
+			<div ng-if="article.imageposition=='left'" class="col-md-5">
+				<img class="featurette-image img-responsive center-block" ng-src="{{article.image}}" data-holder-rendered="true">
+			</div>
+			<div class="col-md-7">
+				  <h2 class="featurette-heading"><span compile="article.title"></span> <span class="text-muted" compile="article.subTitle"></span></h2>
+				  <p class="lead"><span compile="article.content"></span></p>
+			</div>
+			<div ng-if="article.imageposition =='right'" class="col-md-5">
+				<img class="featurette-image img-responsive center-block" ng-src="{{article.image}}" data-holder-rendered="true">
+			</div>
 		</div>
 	</div>
 </div>
