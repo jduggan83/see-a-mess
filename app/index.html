@@ -20,7 +20,8 @@
 </head>
 <body ng-app="cms" ng-controller="MenuController" style="{{app.css}}">
     <!--import chosen theme-->
-    <link href="css/themes/{{app.theme}}.css" rel="stylesheet">
+    <link href="css/themes/{{app.theme}}/{{app.theme}}.css" rel="stylesheet">
+    <link href="css/themes/{{app.theme}}/custom.css" rel="stylesheet">
 
     <!-- Common css and Components CSS -->
     <link href="css/common/common.css" rel="stylesheet">
@@ -31,7 +32,7 @@
         <i class="fa fa-cog fa-spin fa-5x fa-fw" style="color: #777;"></i>
         <span class="sr-only">Loading...</span>
     </div>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom affix-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
