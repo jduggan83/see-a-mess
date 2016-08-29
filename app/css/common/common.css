@@ -1,0 +1,39 @@
+/* COMMON STYLES
+-------------------------------------------------- */
+.row-item{
+	margin-top: 20px;
+}
+
+.publish-success{
+  padding-left: 10px;
+  margin-bottom: 0px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.breadcrumb {
+  background-color: #fff;
+}
+
+.loading {
+  background: #eee;
+  color: #666666;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 5000;
+  top: 0;
+  left: 0;
+  float: left;
+  text-align: center;
+  padding-top: 18%;
+}
+
+.thumbnail-image{
+  width: 100%;
+}
+
+.container-default{
+  padding: 5px;
+}
