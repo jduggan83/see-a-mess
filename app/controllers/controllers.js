@@ -7,6 +7,7 @@ controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope'
 	$scope.isLoading = true;
 	$scope.menuItems = [];
 	$scope.showPublish = false;
+	$scope.demoMode = (CONFIG.demoMode == 'true');
 
 	$scope.publish = {};
 	$scope.publish.show = (CONFIG.mode == 'PREVIEW');
@@ -36,6 +37,11 @@ controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope'
     $scope.isActive = function(pageId){
 		return $routeParams.pageId == pageId;
 	};
+
+	$scope.changeTheme = function(theme, themeDescription){
+		$scope.app.theme = theme;
+		$scope.app.themeDescription = themeDescription;
+	}
 }]);
 
 controllers.controller('PageController', ['$scope', 'siteDefinitionService','$routeParams', '_', function($scope, siteDefinitionService, $routeParams, _) {

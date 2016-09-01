@@ -23,7 +23,7 @@ services.factory('defaultSiteDefinitionService', ['$q', '_', '$http', 'CONFIG', 
                             "title": "About",
                             "parent-page": "",
                             "header": "Welcome to See A Mess",
-                            "subHeader": '<p>All your website needs are finally solved</p><br><a target="_blank" href="/?siteId=1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk" class="btn btn-primary">View Live Demo</a>'
+                            "subHeader": '<p>All your website needs are finally solved</p><br><a target="_blank" href="/?siteId=1-89z0TsK7V1ubO3zzLMZriQqAnyDcwZe7G1jes7VPfk&demoMode=true" class="btn btn-primary">View Live Demo</a>'
                         },
                         {
                             "id": "get-started",

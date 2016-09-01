@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="cms" ng-controller="MenuController">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +7,13 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-    <title>See A Mess</title>
+    <link rel="icon" href="{{app.icon}}">
+    <title>{{app.title}}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/tether/dist/css/tether.min.css" rel="stylesheet">
 
-    <!--3rd party css-->
-    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet">
-</head>
-<body ng-app="cms" ng-controller="MenuController" style="{{app.css}}">
     <!--import chosen theme-->
     <link href="css/themes/{{app.theme}}/{{app.theme}}.css" rel="stylesheet">
     <link href="css/themes/{{app.theme}}/custom.css" rel="stylesheet">
@@ -28,6 +23,11 @@
     <link href="css/common/carousel.css" rel="stylesheet">
     <link href="css/common/featurette.css" rel="stylesheet">
 
+    <!--3rd party css-->
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+</head>
+<body style="{{app.css}}">
     <div class="loading" ng-if="isLoading">
         <i class="fa fa-cog fa-spin fa-5x fa-fw" style="color: #777;"></i>
         <span class="sr-only">Loading...</span>
@@ -52,6 +52,16 @@
 						</ul>
 						<a ng-if="item.subPages==null" href="#{{item.id}}">{{item.title}}</a>
 					</li>
+                    <li ng-if="demoMode" class="nav-item" class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Choose A Theme <span class="label label-info">{{app.themeDescription}}</span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="" ng-click="changeTheme('default', '')">Default</a></li>
+                            <li><a href="" ng-click="changeTheme('flatly', 'Flatly')">Flatly</a></li>
+                            <li><a href="" ng-click="changeTheme('simplex', 'Simplex')">Simplex</a></li>
+                            <li><a href="" ng-click="changeTheme('superhero', 'Superhero')">Superhero</a></li>
+                            <li><a href="" ng-click="changeTheme('united', 'United')">United</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <form class="navbar-form navbar-right" ng-if="publish.show">
                     <button ng-if="publish.status == 'READY' || publish.status == 'PUBLISHING'" class="btn btn-primary" ng-click="publish.publishSite()" ng-class="{ 'disabled': publish.status == 'PUBLISHING' }"><span ng-if="publish.status == 'READY'">Publish</span><span ng-if="publish.status == 'PUBLISHING'">Publishing...</span></button>
