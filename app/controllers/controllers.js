@@ -3,7 +3,7 @@
  */
 var controllers = angular.module('controllers',[]);
 
-controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope', '$location', 'siteDefinitionService', 'CONFIG', function($scope, $routeParams, $rootScope, $location, siteDefinitionService, CONFIG) {
+controllers.controller('GlobalAppController', ['$scope', '$routeParams', '$rootScope', '$location', 'siteDefinitionService', 'CONFIG', function($scope, $routeParams, $rootScope, $location, siteDefinitionService, CONFIG) {
 	$scope.isLoading = true;
 	$scope.menuItems = [];
 	$scope.showPublish = false;
@@ -27,6 +27,12 @@ controllers.controller('MenuController', ['$scope', '$routeParams', '$rootScope'
 		$rootScope.$broadcast('siteDefinitionService::initialised');
         $scope.menuItems = siteDefinitionService.getPages();
         $scope.app = siteDefinitionService.getApplicationInfo();
+
+		if($scope.app.css.substring(0, 4) === 'http'){
+			$scope.app.cssFile = $scope.app.css;
+		}else{
+			$scope.app.style = $scope.app.css;
+		}
 		
 		if($location.path() === ""){
 			$location.path('/'+$scope.menuItems[0].id);
